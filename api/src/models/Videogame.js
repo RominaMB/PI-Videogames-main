@@ -12,21 +12,21 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     descriptions: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
     released: {
-      type: DataTypes.STRING 
+      type: DataTypes.STRING, // ver DATEONLY
     },
     rating: {
       type: DataTypes.FLOAT
     },
     platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false
+      allowNull: false,
     },
   },
   {

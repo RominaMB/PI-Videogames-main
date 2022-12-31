@@ -3,8 +3,6 @@ const { Genre } = require('../db');
 const { YOUR_API_KEY } = process.env;
 const axios = require('axios');
 
-
-
 const genresRouter = Router();
 
 genresRouter.get('/', async (req,res)=>{
@@ -23,7 +21,7 @@ genresRouter.get('/', async (req,res)=>{
     const response = [...mapGenresApiData];
     res.status(200).json(response);
     
-    Genre.bulkCreate(mapGenresApiData);
+    Genre.bulkCreate(mapGenresApiData); //El modelo ejecuta el metodo Bulk para crear en cantidad.
     }
 });
 

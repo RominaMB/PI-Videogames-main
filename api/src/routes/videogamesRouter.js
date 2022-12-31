@@ -16,7 +16,7 @@ videogamesRouter.get('/', async (req,res)=> {
         const dbData = await Videogame.findAll({
             include: {
                 model: Genre,
-                attributes: ["name"],
+                attributes: ['id','name'],
                 through:{
                     attributes:[] // No quiero datos de la tabla intermedia
                 }
@@ -28,7 +28,7 @@ videogamesRouter.get('/', async (req,res)=> {
             return {
                 id: videogames.id,
                 name: videogames.name, 
-                genres: videogames.Genre,
+                genres: videogames.genres, // Ver 
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms, 
@@ -47,7 +47,12 @@ videogamesRouter.get('/', async (req,res)=> {
             return {
                 id: videogames.id,
                 name: videogames.name, 
-                genres: videogames.genres.map(e => e.name),
+                genres: videogames.genres.map((genre)=> {
+                    return{
+                        id: genre.id,
+                        name: genre.name,
+                    };
+                }),
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms.map(e => e.platform.name), 
@@ -68,8 +73,11 @@ videogamesRouter.get('/', async (req,res)=> {
 });
 
 videogamesRouter.post('/', async (req, res)=> {
-    const { name, description, released, rating, platforms, background_image } = req.body;
-    await Videogame.create({ name, description, released, rating, platforms, background_image });
+    const { name, genres, description, released, rating, platforms, background_image } = req.body;
+    const newVideogame = await Videogame.create({ name, genres, description, released, rating, platforms, background_image });
+
+    await newVideogame.addGenre(genres);
+
     res.status(200).send("Created");
 });
 

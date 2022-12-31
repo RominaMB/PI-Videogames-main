@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
-    descriptions: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
@@ -28,6 +28,9 @@ module.exports = (sequelize) => {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
+    background_image: {
+      type: DataTypes.STRING,
+    }
   },
   {
     timestamps: false

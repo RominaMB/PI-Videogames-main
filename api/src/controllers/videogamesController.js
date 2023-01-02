@@ -1,6 +1,7 @@
 const { Videogame, Genre } = require('../db');
 const { YOUR_API_KEY } = process.env;
 const axios = require('axios');
+const { Op } = require('sequelize');
 
 const create_videogame = async (req, res)=> {
     try {
@@ -17,7 +18,52 @@ const get_videogames = async (req,res)=> {
     const { name } = req.query;
 
     if (name) {
-        res.send('NOT IMPLEMENTED YET: SEARCH BY NAME');
+        const resultsDb = await Videogame.findAll({
+            where: {
+                name: {
+                [Op.iLike]:`%${name}%`,
+                },
+            },
+            include: {
+                model: Genre,
+                attributes: ['id','name'],
+                through:{
+                    attributes:[] // No quiero datos de la tabla intermedia
+                }
+            },
+        });
+        const mapresultsDb = resultsDb.map((videogames)=> {
+            return {
+                id: videogames.id,
+                name: videogames.name, 
+                genres: videogames.genres, // Ver 
+                released: videogames.released, 
+                rating: videogames.rating, 
+                platforms: videogames.platforms, 
+                image: videogames.background_image
+            };
+        })
+
+        const resultsApi = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&search=${name}`);
+        const mapresultsApi = resultsApi.data.results.map((videogames)=> {
+            return {
+                id: videogames.id,
+                name: videogames.name, 
+                genres: videogames.genres.map((genre)=> {
+                    return{
+                        id: genre.id,
+                        name: genre.name,
+                    };
+                }),
+                released: videogames.released, 
+                rating: videogames.rating, 
+                platforms: videogames.platforms.map(e => e.platform.name), 
+                image: videogames.background_image
+            };
+        })
+
+        res.status(200).json([...mapresultsDb, ...mapresultsApi].slice(0,15));
+
     } else {
         //**************** buscar todo lo de la db
         const dbData = await Videogame.findAll({
@@ -79,4 +125,32 @@ const get_videogames = async (req,res)=> {
     }
 };
 
-module.exports = { create_videogame , get_videogames };
+const get_vg_by_id = async (req, res)=> {
+    const { id } = req.params;
+    if(req.typeId === "uuid") {
+        //Busco en db
+        const detailDb = await Videogame.findByPk(id);
+        res.status(200).json(detailDb);
+    } else { 
+        //Busco en api
+        const detailApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=${YOUR_API_KEY}`);
+        const mapDetailApi = [detailApi.data].map((videogames)=> {
+            return {
+                id: videogames.id,
+                name: videogames.name, 
+                genres: videogames.genres.map((genre)=> {
+                    return{
+                        id: genre.id,
+                        name: genre.name,
+                    };
+                }),
+                released: videogames.released, 
+                rating: videogames.rating, 
+                platforms: videogames.platforms.map(e => e.platform.name), 
+                image: videogames.background_image
+            };
+        })
+        res.status(200).json([...mapDetailApi]);
+    }
+};
+module.exports = { create_videogame , get_videogames, get_vg_by_id };

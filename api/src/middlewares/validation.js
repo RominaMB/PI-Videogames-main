@@ -10,4 +10,13 @@ const validationMiddleware = (req, res, next)=> {
     next(); 
 };
 
-module.exports = { validationMiddleware };
+const validationId = (req,res,next)=> {
+    const { id } = req.params;
+    if (id.length > 5) {
+        req.typeId = "uuid";
+    } else {
+        req.typeId = "number";
+    }
+    next();
+};
+module.exports = { validationMiddleware, validationId };

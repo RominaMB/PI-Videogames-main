@@ -11,7 +11,7 @@ const Detail = ()=> {
 
     //useEffect(()=> {
         //se encargue de hacer dispatch de la action que pida el detalle del personaje de la API
-        //cuando se desmonta el componente, despacho una action que limpie ese estado 'detail' (asi no veo el detail anterior)
+        //cuando se desmonta el componente, despacho una action que limpie ese estado 'detail' (asi no veo el detail del game anterior)
     //},[dispatch])
 
     return(

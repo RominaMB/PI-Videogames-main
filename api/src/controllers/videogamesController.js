@@ -75,7 +75,6 @@ const get_videogames = async (req,res)=> {
                 }
             },
         });
-        console.log(dbData);
 
         const mapDbData = dbData.map((videogames)=> {
             return {

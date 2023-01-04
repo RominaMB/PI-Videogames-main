@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Nav from './Nav';
 //import { useEffect } from 'react'; 
 //import { useDispatch, useSelector } from 'react-redux';
 
@@ -16,6 +17,7 @@ const Detail = ()=> {
 
     return(
         <>
+            <Nav/>
             <h2>Soy DETAIL del GAME {id}</h2>
         </>
     )

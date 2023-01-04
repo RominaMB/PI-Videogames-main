@@ -1,9 +1,10 @@
 import './App.css';
-import Nav from './components/Nav';
+//import Nav from './components/Nav';
 import Landing from './components/Landing';
+import Home from './components/Home';
 import About from './components/About';
-import Form from './components/Form';
 import Detail from './components/Detail';
+import Form from './components/Form';
 
 import { Route } from 'react-router-dom';
 
@@ -11,16 +12,13 @@ import { Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Route>
-        <Nav />
-      </Route>
-
+      
       <Route exact path='/' component = {Landing} />
-
-      <Route path='/about' render={()=> {return <About />}}/>
-      <Route path='/form' render={()=> {return <Form />}}/>
-      <Route path='/videogames/:id' component={Detail}></Route>
-
+      <Route exact path='/about' render={()=> {return <About />}}/> 
+      <Route exact path='/videogames' component={Home}></Route> 
+      <Route exact path='/videogames/:id' component={Detail}></Route>
+      <Route exact path='/create' component={Form}></Route>
+      
     </div>
   );
 }

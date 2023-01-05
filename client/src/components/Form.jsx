@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-//import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 //import { useEffect } from 'react'; 
 import { useState } from 'react';
 import { getAllVideogames, getGenres, getPlatforms } from '../redux/actions';
@@ -15,10 +15,9 @@ const Form = ()=> {
     // const platforms = useSelector((state)=> state.platforms);
     // const allVideogames = useSelector((state)=> state.allVideogames);
     //const [errors, setErrors] = useState({});
-
+    const genres = useSelector((state)=> state.genres);
     const [form, setForm] = useState({
         name:'',
-        genres:[],
         description:'',
         released:'',
         rating:'',
@@ -27,9 +26,9 @@ const Form = ()=> {
     }) 
 
     useEffect(()=>{
-        dispatch(getAllVideogames());
-        dispatch(getGenres());
-        dispatch(getPlatforms())
+    //    dispatch(getAllVideogames());
+    if(!genres.length) dispatch(getGenres());
+    //    dispatch(getPlatforms())
     }, [dispatch])
 
     const handleChange =(e)=> {

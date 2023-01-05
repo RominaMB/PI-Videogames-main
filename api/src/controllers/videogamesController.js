@@ -126,7 +126,7 @@ const get_videogames = async (req,res)=> {
 
 const get_vg_by_id = async (req, res)=> {
     const { id } = req.params;
-    if(req.typeId === "uuid") {
+    if(req.typeId === 'uuid') {
         //Busco en db
         const detailDb = await Videogame.findByPk(id);
         res.status(200).json(detailDb);

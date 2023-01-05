@@ -5,7 +5,7 @@ const initialState = {
     allVideogames: [],
     details: [], // {} Es un objeto porque tiene la informacion de un solo personaje
     genres: [],
-    platforms:[],
+    platforms: [],
 };
 
 const rootReducer = (state = initialState, action)=> {

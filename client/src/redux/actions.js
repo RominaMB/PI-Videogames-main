@@ -35,9 +35,9 @@ export const getGenres = ()=> async (dispatch) => {
         dispatch( {type: GET_GENRES, payload: response.data }))
 }
 
-export const getPlatforms= ()=> async (dispatch) => {
+export const getPlatforms = ()=> async (dispatch) => {
     return await axios
-    .get(`${URL_SERVER}/videogames/platforms`)
+    .get(`${URL_SERVER}/platforms`) // ver /platforms o /videogames/platforms
     .then((response)=>
         dispatch( {type: GET_PLATFORMS, payload: response.data }))
 }

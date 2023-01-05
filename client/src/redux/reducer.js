@@ -1,16 +1,23 @@
-import { GET_ALL_VIDEOGAMES } from './actions';
+import { CLEAN_VIDEOGAMES_DETAILS, GET_ALL_VIDEOGAMES, GET_VIDEOGAMES_DETAILS, GET_GENRES } from './actions';
 
 //Punto de partida cuando comience la aplicacion
 const initialState = { 
     allVideogames: [],
-    detail: {}, // Es un objeto porque tiene la informacion de un solo personaje
+    details: [], // {} Es un objeto porque tiene la informacion de un solo personaje
+    genres: [],
 };
 
 const rootReducer = (state = initialState, action)=> {
-//Varios casos posibles
+//Varios casos posibles - ver loading: false
     switch(action.type) {
         case GET_ALL_VIDEOGAMES:
             return { ...state, allVideogames: action.payload };
+        case GET_VIDEOGAMES_DETAILS:
+            return {...state, details: action.payload};
+        case CLEAN_VIDEOGAMES_DETAILS:
+            return {...state, details:[]}
+        case GET_GENRES:
+            return {...state, details: action.payload};
         default:
             return { ...state };
     }

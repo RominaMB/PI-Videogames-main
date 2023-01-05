@@ -6,6 +6,8 @@ export const GET_ALL_VIDEOGAMES = 'GET_ALL_VIDEOGAMES';
 export const GET_VIDEOGAMES_DETAILS = 'GET_VIDEOGAMES_DETAILS';
 export const CLEAN_VIDEOGAMES_DETAILS = 'CLEAN_VIDEOGAMES_DETAILS';
 export const GET_GENRES = 'GET_GENRES';
+export const GET_PLATFORMS = 'GET_PLATFORMS';
+
 
 //Action Creator
 export const getAllVideogames = ()=> async (dispatch) => {
@@ -31,4 +33,11 @@ export const getGenres = ()=> async (dispatch) => {
     .get(`${URL_SERVER}/genres`)
     .then((response)=>
         dispatch( {type: GET_GENRES, payload: response.data }))
+}
+
+export const getPlatforms= ()=> async (dispatch) => {
+    return await axios
+    .get(`${URL_SERVER}/videogames/platforms`)
+    .then((response)=>
+        dispatch( {type: GET_PLATFORMS, payload: response.data }))
 }

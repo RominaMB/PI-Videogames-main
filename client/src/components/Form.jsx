@@ -1,17 +1,20 @@
-import React from 'react';
-//import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
+//import { useSelector } from 'react-redux';
 //import { useEffect } from 'react'; 
 import { useState } from 'react';
-import { getGenres } from '../redux/actions';
+import { getAllVideogames, getGenres, getPlatforms } from '../redux/actions';
 import Nav from './Nav';
 import axios from 'axios';
 
 
 const Form = ()=> {
     
-    //const dispatch = useDispatch();
-    const genres = useSelector((state)=> state.genres);
+    const dispatch = useDispatch();
+    // const genres = useSelector((state)=> state.genres);
+    // const platforms = useSelector((state)=> state.platforms);
+    // const allVideogames = useSelector((state)=> state.allVideogames);
+    //const [errors, setErrors] = useState({});
 
     const [form, setForm] = useState({
         name:'',
@@ -23,6 +26,12 @@ const Form = ()=> {
         image:''
     }) 
 
+    useEffect(()=>{
+        dispatch(getAllVideogames());
+        dispatch(getGenres());
+        dispatch(getPlatforms())
+    }, [dispatch])
+
     const handleChange =(e)=> {
         const property = e.target.name;
         const value = e.target.value;
@@ -32,6 +41,26 @@ const Form = ()=> {
         })
     }
 
+    // const  handleGenres =(e)=> {
+    //     const value = e.target.value;
+    //     if(!input.genres.includes(value)) {
+    //       setInput({
+    //         ...input,
+    //         genres: [...input.genres, value],
+    //       })
+    //     }
+    //   }
+
+    //   const  handlePlatforms =(e)=> {
+    //     const value = e.target.value;
+    //     if(!form.platforms.includes(value)) {
+    //       setForm({
+    //         ...form,
+    //         platforms: [...form.genres, value],
+    //       })
+    //     }
+    //   }
+
     //axios.post('url',form)
 
     const submitHandler=(e)=> {
@@ -39,6 +68,7 @@ const Form = ()=> {
         axios.post('http://localhost:3001/videogames', form)
         .then()
     }
+
 
 //nombre que le quiero dar al estado, nombre que le quiero dar a la funcion que puede cambiar el estado.
 //el formulario se controla con el estado porque el formulario setea el estado y a su vez el formulario toma el valor
@@ -89,14 +119,13 @@ const Form = ()=> {
             
             <input 
                 type='file'
-                id='background_image'
                 name='image' 
                 accept='.jpg, .jpeg, .png, .webp'
                 onChange={handleChange}
             />
 
             <label>Seleccionar Plataformas:</label>
-                <select multiple>
+                <select name='' multiple>
                     <option value='' disabled>Plataformas</option>               
                     <option value='1'>PC</option>
                     <option value='2'>Linux</option>

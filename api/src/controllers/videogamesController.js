@@ -133,21 +133,21 @@ const get_vg_by_id = async (req, res)=> {
     } else { 
         //Busco en api
         const detailApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=${YOUR_API_KEY}`);
-        const mapDetailApi = [detailApi.data].map((details)=> {
+        const mapDetailApi = [detailApi.data].map((videogames)=> {
             return {
-                id: details.id,
-                name: details.name, 
-                description: details.description,
-                genres: details.genres.map((genre)=> {
+                id: videogames.id,
+                name: videogames.name, 
+                description: videogames.description,
+                genres: videogames.genres.map((genre)=> {
                     return{
                         id: genre.id,
                         name: genre.name,
                     };
                 }),
-                released: details.released, 
-                rating: details.rating, 
-                platforms: details.platforms.map(e => e.platform.name), 
-                image: details.background_image
+                released: videogames.released, 
+                rating: videogames.rating, 
+                platforms: videogames.platforms.map(e => e.platform.name), 
+                image: videogames.background_image
             };
         })
         res.status(200).json([...mapDetailApi]);

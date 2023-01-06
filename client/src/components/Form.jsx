@@ -77,12 +77,16 @@ const Form = ()=> {
 //el prevent default van en el submit del formulario, no en los handlers.
 
     return(
+    <body>
+        {/* <a href='./enlaces.html' target='_self'>Back</a> */}
 
         <form autoComplete='off' onSubmit={submitHandler}>
         
             <Nav/>
-            <h2>CREAR VIDEOGAME</h2>
+            <h2>CREATE YOUR VIDEOGAME</h2>
             
+            <div>
+            <label for='name'>Name:</label>
             <input
                 type='text' 
                 name='name'  
@@ -90,16 +94,11 @@ const Form = ()=> {
                 value={form.name} 
                 onChange={handleChange}
             />
-
-            <textarea
-                type='text' 
-                name='description' 
-                placeholder='description (max 255 characters)' 
-                maxLength='255'
-                value={form.description} 
-                onChange={handleChange}
-            />
-
+            </div>
+            
+            <br></br>
+            <div>
+            <label for='released'>Released Date:</label>
             <input 
                 type='text' 
                 name='released' 
@@ -107,7 +106,11 @@ const Form = ()=> {
                 value={form.released} 
                 onChange={handleChange}
             />
+            </div>
 
+            <br></br>
+            <div>
+            <label for='rating'>Rating:</label>
             <input 
                 type='number' 
                 name='rating' 
@@ -115,17 +118,27 @@ const Form = ()=> {
                 value={form.rating} 
                 onChange={handleChange}
             />
-            
-            <input 
-                type='file'
-                name='image' 
-                accept='.jpg, .jpeg, .png, .webp'
+            </div>
+
+            <br></br>
+            <div>
+            <label for='description'>Description:</label>
+            <textarea
+                type='text' 
+                name='description' 
+                placeholder='(max 255 characters)' 
+                cols='30'
+                rows='5'
+                value={form.description} 
                 onChange={handleChange}
             />
+            </div>
 
-            <label>Seleccionar Plataformas:</label>
-                <select name='' multiple>
-                    <option value='' disabled>Plataformas</option>               
+            <br></br>
+            <div>
+            <label for='platforms'>Plataforms:</label>
+                <select name='platforms'>
+                    <option value='0' disabled>Plataforms</option>               
                     <option value='1'>PC</option>
                     <option value='2'>Linux</option>
                     <option value='3'>Xbox One</option>
@@ -139,9 +152,34 @@ const Form = ()=> {
                     <option value='11'>Android</option>
                     <option value='12'>Steam Deck</option>
                 </select>
+            </div>
 
+            <br></br>
+            <div>
+            <label>Genres:</label>
+                <select name='genres'>
+                    <option value='0' disabled>Genres</option>
+                </select>
+            </div>
+
+            <br></br>
+            <div>
+            <label for='image'>Image:</label>
+            <input 
+                type='file'
+                name='image' 
+                accept='.jpg, .jpeg, .png, .webp'
+                onChange={handleChange}
+            />
+            </div>
+
+            <br></br>
+            <div>
+            <input type='reset' value='RESET'/>
             <input type='submit' value='SUBMIT'/>
+            </div>
         </form>
+    </body>
     )
 }
 

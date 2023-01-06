@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import s from './Landing.module.css';
+
 // import { useEffect } from 'react'; 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getAllVideogames } from '../redux/actions';
@@ -7,12 +9,20 @@ import { Link } from 'react-router-dom';
 
 const Landing = ()=> {
     return(
-        <div >
-            <h1>Soy LANDING PAGE</h1>
-            <Link to={'/videogames'}><button>START</button></Link>
+
+        <div className={s.landing__main}>
+            
+                <h1 className={s.landing__title}>Welcome to Videogames</h1>
+                <div className={s.button__container}>
+                    <p className={s.button__text}>Press X to START.</p>
+                    <Link to={'/videogames'}>
+                        <button className={s.button__start}>START</button>
+                    </Link>
+                </div>
+            
         </div>
-    )
-}
+    );
+};
 
 export default Landing;
 

@@ -40,7 +40,7 @@ const get_videogames = async (req,res)=> {
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms, 
-                image: videogames.background_image
+                background_image: videogames.background_image
             };
         })
 
@@ -58,7 +58,7 @@ const get_videogames = async (req,res)=> {
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms.map(e => e.platform.name), 
-                image: videogames.background_image
+                background_image: videogames.background_image
             };
         })
 
@@ -84,7 +84,7 @@ const get_videogames = async (req,res)=> {
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms, 
-                image: videogames.background_image
+                background_image: videogames.background_image
             };
         })
     
@@ -108,7 +108,7 @@ const get_videogames = async (req,res)=> {
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms.map(e => e.platform.name), 
-                image: videogames.background_image
+                background_image: videogames.background_image
             };
         })
 
@@ -147,7 +147,7 @@ const get_vg_by_id = async (req, res)=> {
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms.map(e => e.platform.name), 
-                image: videogames.background_image
+                background_image: videogames.background_image
             };
         })
         res.status(200).json([...mapDetailApi]);

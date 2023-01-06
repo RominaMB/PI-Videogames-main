@@ -25,23 +25,43 @@ const Detail = ()=> {
     return(
         <>
             <Nav/>
-      
+            <body>
             <div><h2>Soy DETAIL del GAME {id}</h2>
-            <div>{details.map(game=> {
+            {details.map(game=> {
                 return(
-                    <p> 
-                        Name: {game.name}
-                        Genres:{game.genres?.map(g=> (g.name ? g.name : g))};
-                        Descripcion: {game.description}
-                        Released: {game.released}
-                        Rating: {game.rating}
-                        Platforms: {game.platforms}
-                        Image: {game.image}           
-                    </p>
+                    <>
+                    <div>
+                    <label for= 'name'>Name:</label>
+                    {game.name}
+                    </div>
+
+                    <br></br>
+                    <div><img src={game.background_image} alt='game'/></div>
+
+                    <br></br>
+                    <div><label for='genres'>Genres:</label>
+                    {game.genres?.map(g=> (g.name ? g.name : g))};
+                    </div>
+
+                    <br></br>
+                    <div><label for='rating'>Rating:</label>
+                    {game.rating}</div>
+                    <br></br>
+                    <div><label for='description'>Description:</label>
+                    {game.description}</div>
+
+                    <br></br>
+                    <div><label for='released'>Released:</label>
+                    {game.released}</div>
+
+                    <br></br>
+                    <div><label for='platforms'>Platforms:</label>{game.platforms}</div>
+                    </>    
                 )
+                
             })}
             </div>
-        </div>
+            </body>
         </>
     );
 }

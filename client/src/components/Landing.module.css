@@ -21,7 +21,7 @@ html, body {
      
     position:absolute;
     width:50%;
-    top:70%;
+    top:69%;
     left:45%;
     
 }
@@ -73,11 +73,13 @@ html, body {
 
     .landing__title{
         display: flex;
-        font-size: 45px;
-        top: 0;
-        left: 0;
+        /* top: 3px;
+        left: 5px;
+        right:5px; */
         position: static;
-        width: 100%;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
     .button__Container{
         right: 0;

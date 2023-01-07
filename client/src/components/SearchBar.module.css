@@ -5,12 +5,20 @@ html, body {
     height: 100%;
 }
 
+.search__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 70px;
+}
+
 .search__bar {
     color: white;
     display: flex;
     padding: 2px;
     border: 1.5px solid currentColor;
     border-radius: 30px;
+    
 }
 
 .input__searchbar {

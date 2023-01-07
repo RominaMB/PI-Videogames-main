@@ -50,11 +50,3 @@ html, body {
 .nav__link:hover {
     color: rgb(4, 74, 83);
   }
-
-.nav__search {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 20px;
-}

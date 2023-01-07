@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react'; 
 import { useParams } from 'react-router-dom';
 import { getVideogamesDetails, cleanVgDetails } from '../redux/actions';
+import s from './Detail.module.css';
 import Nav from './Nav';
 
 
@@ -26,37 +27,38 @@ const Detail = ()=> {
         <>
             <Nav/>
             <body>
-            <div><h2>Soy DETAIL del GAME {id}</h2>
+            <div className={s.detail__page}><h2>Soy DETAIL del GAME {id}</h2>
+            
             {details.map(game=> {
                 return(
-                    <>
-                    <div>
-                    <label for= 'name'>Name:</label>
+                    <div className={s.detail__container}>
+                    <div className={s.detail__name}>
                     {game.name}
                     </div>
 
                     <br></br>
-                    <div><img src={game.background_image} alt='game'/></div>
+                    <div><img className={s.detail__img} src={game.background_image} alt='game'/></div>
 
                     <br></br>
-                    <div><label for='genres'>Genres:</label>
+                    <div className={s.detail__label}><label for='genres'>Genres:</label></div>
                     {game.genres?.map(g=> (g.name ? g.name : g))};
-                    </div>
+                    
+                    <br></br>
+                    <div className={s.detail__label}><label for='rating'>Rating:</label></div>
+                    {game.rating}
+                    <br></br>
+
+                    <div className={s.detail__label}><label for='description'>Description:</label></div>
+                    <div className={s.description}>{game.description}</div>
 
                     <br></br>
-                    <div><label for='rating'>Rating:</label>
-                    {game.rating}</div>
-                    <br></br>
-                    <div><label for='description'>Description:</label>
-                    {game.description}</div>
+                    <div className={s.detail__label}><label for='released'>Released:</label></div>
+                    {game.released}
 
                     <br></br>
-                    <div><label for='released'>Released:</label>
-                    {game.released}</div>
-
-                    <br></br>
-                    <div><label for='platforms'>Platforms:</label>{game.platforms}</div>
-                    </>    
+                    <div className={s.detail__label}><label for='platforms'>Platforms:</label></div>
+                    {game.platforms}
+                    </div>    
                 )
                 
             })}

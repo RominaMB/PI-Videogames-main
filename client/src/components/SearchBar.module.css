@@ -33,7 +33,7 @@ html, body {
     margin: 0;
     border: 0px solid transparent;
     border-radius:inherit;
-    background: transparent url(../assets/search1.png) no-repeat center;
+    background: transparent url(../assets/search.png) no-repeat center;
     background-size:65%;
     cursor: pointer;
     opacity: 0.5;

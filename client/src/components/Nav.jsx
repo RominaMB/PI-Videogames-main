@@ -15,8 +15,8 @@ const Nav = ()=> {
                 <div className={s.nav__search}><SearchBar/></div>
                 <div className={s.nav__alllinks}>
                     <Link to='/videogames' className={s.nav__link}>HOME</Link>
-                    <Link to='/about' className={s.nav__link}>ABOUT</Link>
                     <Link to='/create' className={s.nav__link}>CREATE</Link>
+                    <Link to='/about' className={s.nav__link}>ABOUT</Link>
                 </div>
             </div>
         </>

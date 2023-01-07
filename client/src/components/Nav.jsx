@@ -1,14 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from '../components/SearchBar';
+import s from './Nav.module.css';
+import nav from '../assets/nav.png';
 
 const Nav = ()=> {
     return(
         <>
-            <h2>Soy NAV</h2>
-            <p><Link to='/videogames'>HOME</Link></p>
-            <p><Link to='/about'>ABOUT</Link></p>
-            <p><Link to='/create'>CREATE</Link></p>
+            <div className={s.nav__bar}>
 
+                {/* <div className={s.nav__title}> */}
+                    <Link to='/'><img className ={s.nav__img} src={nav} alt='navlanding'/></Link>
+                {/* </div> */}
+                <div className={s.nav__search}><SearchBar/></div>
+                <div className={s.nav__alllinks}>
+                    <Link to='/videogames' className={s.nav__link}>HOME</Link>
+                    <Link to='/about' className={s.nav__link}>ABOUT</Link>
+                    <Link to='/create' className={s.nav__link}>CREATE</Link>
+                </div>
+            </div>
         </>
     )
 }

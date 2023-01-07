@@ -12,9 +12,9 @@ const Landing = ()=> {
 
         <div className={s.landing__main}>
             
-                <h1 className={s.landing__title}>Welcome to Videogames</h1>
+                <h1 className={s.landing__title}>Welcome to GameLand </h1>
                 <div className={s.button__container}>
-                    <p className={s.button__text}>Press X to START.</p>
+                    <p className={s.button__text}>Press to START.</p>
                     <Link to={'/videogames'}>
                         <button className={s.button__start}>START</button>
                     </Link>

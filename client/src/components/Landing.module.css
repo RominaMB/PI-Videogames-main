@@ -6,8 +6,8 @@ html, body {
 }
 
 .landing__main {
-    background-image: url(../assets/landing.jpg);
-    background-color:rgb(122, 14, 223);
+    background-image: url(../assets/landing.png);
+    background-color: rgb(96, 196, 183);
     background-size: cover;
     position: fixed;
     height: 100%;
@@ -19,7 +19,7 @@ html, body {
 
 .landing__title{
     color:blanchedalmond;
-    position: absolute;
+    position:absolute;
     top:30%;
     left:30%;
     font-size: 72px;
@@ -30,7 +30,6 @@ html, body {
     font-size: 25px;
     font-weight: bold;
 }
-
 
 .button__container{
     position: absolute;

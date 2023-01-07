@@ -1,0 +1,42 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.game__img{
+    width: 20%;
+    height: 20%;
+}
+
+.card__container{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    overflow-y: scroll;
+}
+
+.individual__card{
+    height: 100%;
+    width: 30vw;
+    display: flex;
+    padding-bottom: 3%;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; 
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 1em;
+    
+}
+
+.game__img {
+    height: 80%;
+    width: 50%;
+    box-shadow: 2px 2px 12px #6d6875;
+    border-radius: 5px;
+    margin-top: 3px;
+}

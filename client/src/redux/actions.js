@@ -7,6 +7,8 @@ export const GET_VIDEOGAMES_DETAILS = 'GET_VIDEOGAMES_DETAILS';
 export const CLEAN_VIDEOGAMES_DETAILS = 'CLEAN_VIDEOGAMES_DETAILS';
 export const GET_GENRES = 'GET_GENRES';
 export const GET_PLATFORMS = 'GET_PLATFORMS';
+export const SEARCH_GAMES_BY_NAME = 'SEARCH_GAMES_BY_NAME';
+export const ORDER_BY = 'ORDER_BY';
 
 
 //Action Creator
@@ -25,7 +27,7 @@ export const getVideogamesDetails = (id)=> async (dispatch) => {
 }
 
 export const cleanVgDetails = () => {
-    return { type: 'CLEAN_VIDEOGAMES_DETAILS'}
+    return { type: CLEAN_VIDEOGAMES_DETAILS }
 }
 
 export const getGenres = ()=> async (dispatch) => {
@@ -40,4 +42,15 @@ export const getPlatforms = ()=> async (dispatch) => {
     .get(`${URL_SERVER}/platforms`) // ver /platforms o /videogames/platforms
     .then((response)=>
         dispatch( {type: GET_PLATFORMS, payload: response.data }))
+}
+
+export const searchGame = (name)=> async (dispatch)=> {
+    return await axios
+    .get(`${URL_SERVER}/videogames?name=${name}`)
+    .then((response)=>
+        dispatch( {type: SEARCH_GAMES_BY_NAME, payload: response.data }))
+}
+
+export const orderBy = (payload)=> {
+    return { type: ORDER_BY, payload }
 }

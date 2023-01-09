@@ -33,11 +33,11 @@ html, body {
     transition: 0.5s;
 }
 
-
+/* 
 .nav___alllinks {
     margin: 5px;
     background-color: blue;
-}
+} */
 
 .nav__link {
     margin: 5px;
@@ -45,8 +45,14 @@ html, body {
     width: 1px;   
     text-decoration: none;
     color: #fff;
+    position: inherit;
 }
 
-.nav__link:hover {
+.nav__link:hover{
     color: rgb(4, 74, 83);
-  }
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 30px;
+    transition: 0.5s;
+
+}

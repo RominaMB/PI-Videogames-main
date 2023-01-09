@@ -21,22 +21,57 @@ html, body {
 
 .individual__card{
     height: 100%;
-    width: 30vw;
-    display: flex;
+    width: 250px;
+    /* display: flex; */
     padding-bottom: 3%;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap; 
-    box-shadow: 20px 20px 50px rgba(0,0,0,0.2);
+    margin-bottom: 3%;
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    /* flex-wrap: wrap;  */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     background-color: rgba(255,255,255,0.1);
-    border-radius: 1em;
-    
+    border-radius: 20px;
+
 }
 
 .game__img {
-    height: 80%;
-    width: 50%;
-    box-shadow: 2px 2px 12px #6d6875;
-    border-radius: 5px;
-    margin-top: 3px;
+    height: 150px;
+    width: 250px;
+    /* box-shadow: 2px 2px 12px #6d6875; */
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-top: 0px;
+    opacity: 85%;
+
 }
+
+.game__name {
+    /* font-variant:small-caps; */
+    font-weight: bold;
+    /* width: 1px; */
+    text-decoration: none;
+    display: inline-block;
+    color: rgb(4, 74, 83);
+}
+
+.game__genres {
+    font-variant:small-caps;
+    font-size: small;
+    text-decoration: none;
+    display: inline-block;
+    color: rgb(4, 74, 83);
+}
+
+.individual__card:hover{
+    background-color: rgba(145, 190, 201, 0.288);
+    transition: 0.5s;
+    transform: scale(1.04);   
+}
+
+.game__img:hover{
+    opacity: 100%;
+}
+
+/* .game__name:hover {
+    color: rgb(204,141,164)
+} */

@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { getAllVideogames, getGenres, getPlatforms } from '../redux/actions';
 import Nav from './Nav';
 import axios from 'axios';
+import s from './Form.module.css';
+
 
 
 const Form = ()=> {
@@ -78,12 +80,14 @@ const Form = ()=> {
 
     return(
     <body>
-        {/* <a href='./enlaces.html' target='_self'>Back</a> */}
-
-        <form autoComplete='off' onSubmit={submitHandler}>
         
-            <Nav/>
-            <h2>CREATE YOUR VIDEOGAME</h2>
+        {/* <a href='./enlaces.html' target='_self'>Back</a> */}
+        <Nav/>
+        <div className={s.form__page} >
+        <form className={s.form__container} autoComplete='off' onSubmit={submitHandler}>
+        
+            
+            <h2 className={s.form__title}>CREATE YOUR VIDEOGAME</h2>
             
             <div>
             <label for='name'>Name:</label>
@@ -179,6 +183,7 @@ const Form = ()=> {
             <input type='submit' value='SUBMIT'/>
             </div>
         </form>
+        </div>
     </body>
     )
 }

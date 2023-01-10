@@ -1,13 +1,13 @@
 import React from 'react';
 import Nav from './Nav';
 import Games from './Games'
-import Sort from './Sort';
+import OrderFilters from './OrdersFilters';
 
 const Home = ()=> {
     return(
         <>
             <Nav/> 
-            <Sort/>        
+            <OrderFilters/>        
             <h2>Soy HOME PAGE</h2>
             <Games/>
         </>

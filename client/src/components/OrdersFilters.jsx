@@ -1,14 +1,13 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { orderBy, filterBySource, filterByGenre, getGenres } from '../redux/actions';
 
+const OrdersFilters = () => {
 
-const Sort = () => {
-
-        const dispatch = useDispatch() 
-        const genres = useSelector((state)=> state.genres)
-        console.log(genres)
+        const dispatch = useDispatch();
+        const genres = useSelector((state)=> state.genres);
+        const [genreSelect, setGenreSelect] = useState();
 
         const handleSort = (e)=> {
                 dispatch(orderBy(e.target.value))
@@ -19,13 +18,14 @@ const Sort = () => {
         }
 
         const handleGenre = (e)=> {
-                dispatch(filterByGenre(e.target.value))
+                e.preventDefault();
+                setGenreSelect(e.target.value)
+                dispatch(filterByGenre(e.target.value));
         }
 
         useEffect(()=> {
-                dispatch(getGenres)
+                dispatch(getGenres())
         }, [dispatch])
-        console.log(genres)
 
         return (
                 <div>
@@ -41,23 +41,25 @@ const Sort = () => {
                         </select>
 
                          <select 
-                        defaultValue='title'
+                        value={genreSelect}
                         onChange={handleSource}>
 
                                 <option disabled value='title' >Filter by Source</option>
+                                <option name='All1'>All Videogames</option>
                                 <option value='api'>From our List</option>
-                                <option value='created'>Created by Users</option>
+                                <option value='uuid'>Created by Users</option>
                         </select>
 
                         <select 
                         id='genre'
-                        defaultValue='title'
+                        value={genreSelect}
                         onChange={handleGenre}>
 
-                                <option disabled value='title' >Filter by Genre</option>
-                                        {genres.map((g)=> {
+                                <option disabled value='title'>Filter by Genres</option>
+                                        <option name='All'>All Genres</option>
+                                        {genres.map((genre)=> {
                                         return (
-                                        <option key={g.id} value={g.name}>{g.name}</option>
+                                        <option key={genre.id} value={genre.name}>{genre.name}</option>
                                         )
                                 })}
                         </select>
@@ -66,4 +68,4 @@ const Sort = () => {
         )
 }
 
-export default Sort;
+export default OrdersFilters;

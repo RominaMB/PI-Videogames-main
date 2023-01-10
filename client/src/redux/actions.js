@@ -61,6 +61,11 @@ export const filterBySource = (payload)=> {
     return { type: FILTER_BY_SOURCE, payload }
 }
 
-export const filterByGenre = (payload)=> {
-    return { type: FILTER_BY_GENRE, payload }
+export const filterByGenre = (genre)=> (dispatch)=> {
+    return dispatch({ type: FILTER_BY_GENRE, payload:genre })
 }
+// export function filterByGenre(genre){
+//     return function (dispatch){
+//         dispatch({type:FILTER_BY_GENRE, payload:genre})
+//     }
+// }

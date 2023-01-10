@@ -13,9 +13,9 @@ const validationMiddleware = (req, res, next)=> {
 const validationId = (req,res,next)=> {
     const { id } = req.params;
     if (id.length > 5) {
-        req.typeId = "uuid";
+        req.typeId = 'uuid';
     } else {
-        req.typeId = "number";
+        req.typeId = 'number';
     }
     next();
 };

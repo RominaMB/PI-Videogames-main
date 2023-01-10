@@ -2,11 +2,13 @@ import { CLEAN_VIDEOGAMES_DETAILS, GET_ALL_VIDEOGAMES, GET_VIDEOGAMES_DETAILS, G
          SEARCH_GAMES_BY_NAME,
          ORDER_BY,
          FILTER_BY_SOURCE,
-         FILTER_BY_GENRE} from './actions';
+         FILTER_BY_GENRE
+    } from './actions';
 
 //Punto de partida cuando comience la aplicacion
 const initialState = { 
     allVideogames: [],
+    videogamesForFilter: [],
     details: [], // {} Es un objeto porque tiene la informacion de un solo personaje
     genres: [],
     platforms: [],
@@ -16,7 +18,7 @@ const rootReducer = (state = initialState, action)=> {
 //Varios casos posibles - ver loading: false
     switch(action.type) {
         case GET_ALL_VIDEOGAMES:
-            return { ...state, allVideogames: action.payload };
+            return { ...state, allVideogames: action.payload, videogamesForFilter: action.payload };
         case GET_VIDEOGAMES_DETAILS:
             return {...state, details: action.payload};
         case CLEAN_VIDEOGAMES_DETAILS:
@@ -76,18 +78,18 @@ const rootReducer = (state = initialState, action)=> {
             allVideogames: order,
         }
         case FILTER_BY_SOURCE:
-            let getGames = state.allVideogames;
+            let getGames = state.videogamesForFilter;
             let filter = []
 
             switch(action.payload){
-                case 'created': 
-                filter = getGames.filter(e=> isNaN(e.id))
+                case 'uuid': 
+                filter = getGames.filter(e=> (e.id.length > 5))
                 break;
                 case 'api':
                 filter = getGames.filter(e=> typeof(e.id) === 'number')
                 break;
             default:
-                filter = getGames
+                filter = getGames;
                 break;
             }
         return {
@@ -95,22 +97,20 @@ const rootReducer = (state = initialState, action)=> {
             allVideogames: filter
         }
         case FILTER_BY_GENRE:
+            let getGamesGenre = state.videogamesForFilter;
             let aux = [];
             if(action.payload) {
-                aux = state.allVideogames.filter(e => {
-                    if(e.genres.length === 0){
-                        return e.genres
-                    }
-                    else if(e.genres.some(e => e.name === action.payload)) {
-                        return e.genres.map(e => e.name)
-                    } else {
-                        return e.genres.includes(action.payload)
-                    }
-                })
+                aux = getGamesGenre.filter(e => {
+                    if(e.genres.some(e => e.name === action.payload)) {
+                        return e.genres.map(g => g.name)
+                    } 
+                    if(action.payload === 'All Genres')
+                        return getGamesGenre
+                    })
+    
             } else {
-                aux = state.allVideogames
+                aux = getGamesGenre;
             }
-
             return {
                 ...state,
                 allVideogames: aux,

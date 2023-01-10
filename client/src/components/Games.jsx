@@ -30,6 +30,7 @@ const Cards = ()=> {
                         <div className={s.individual__card}>
                             <Link to= {`/videogames/${game.id}`}>
                             <div><img className={s.game__img} src={game.background_image} alt='game'/></div>
+                            <div>{game.rating}</div>
                             <div className={s.game__name}>{game.name}</div>
                             <br></br>
                             <div className={s.game__genres}>{game.genres?.map(g=> (g.name ? g.name : g))}</div>

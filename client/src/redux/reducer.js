@@ -1,6 +1,8 @@
 import { CLEAN_VIDEOGAMES_DETAILS, GET_ALL_VIDEOGAMES, GET_VIDEOGAMES_DETAILS, GET_GENRES, GET_PLATFORMS,
          SEARCH_GAMES_BY_NAME,
-         ORDER_BY} from './actions';
+         ORDER_BY,
+         FILTER_BY_SOURCE,
+         FILTER_BY_GENRE} from './actions';
 
 //Punto de partida cuando comience la aplicacion
 const initialState = { 
@@ -45,7 +47,7 @@ const rootReducer = (state = initialState, action)=> {
                         }
                         return 1;
                     });
-                    break;
+                        break;
                     case 'Z-A':
                     order = gamesCopy.sort((a,b)=> {
                         a= a.name.toLowerCase();
@@ -58,6 +60,12 @@ const rootReducer = (state = initialState, action)=> {
                         }
                         return 1;
                     });
+                        break;
+                    case 'AscRating':
+                        order = gamesCopy.sort((a,b)=> b.rating - a.rating)
+                        break;
+                    case 'DescRating':
+                        order = gamesCopy.sort((a,b)=> a.rating - b.rating)
                     break;
                 default:
                     order = gamesCopy;
@@ -67,7 +75,46 @@ const rootReducer = (state = initialState, action)=> {
             ...state,
             allVideogames: order,
         }
-        
+        case FILTER_BY_SOURCE:
+            let getGames = state.allVideogames;
+            let filter = []
+
+            switch(action.payload){
+                case 'created': 
+                filter = getGames.filter(e=> isNaN(e.id))
+                break;
+                case 'api':
+                filter = getGames.filter(e=> typeof(e.id) === 'number')
+                break;
+            default:
+                filter = getGames
+                break;
+            }
+        return {
+            ...state,
+            allVideogames: filter
+        }
+        case FILTER_BY_GENRE:
+            let aux = [];
+            if(action.payload) {
+                aux = state.allVideogames.filter(e => {
+                    if(e.genres.length === 0){
+                        return e.genres
+                    }
+                    else if(e.genres.some(e => e.name === action.payload)) {
+                        return e.genres.map(e => e.name)
+                    } else {
+                        return e.genres.includes(action.payload)
+                    }
+                })
+            } else {
+                aux = state.allVideogames
+            }
+
+            return {
+                ...state,
+                allVideogames: aux,
+            }
         default:
             return { ...state };
 

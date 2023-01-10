@@ -9,6 +9,8 @@ export const GET_GENRES = 'GET_GENRES';
 export const GET_PLATFORMS = 'GET_PLATFORMS';
 export const SEARCH_GAMES_BY_NAME = 'SEARCH_GAMES_BY_NAME';
 export const ORDER_BY = 'ORDER_BY';
+export const FILTER_BY_SOURCE = 'FILTER_BY_SOURCE';
+export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 
 
 //Action Creator
@@ -53,4 +55,12 @@ export const searchGame = (name)=> async (dispatch)=> {
 
 export const orderBy = (payload)=> {
     return { type: ORDER_BY, payload }
+}
+
+export const filterBySource = (payload)=> {
+    return { type: FILTER_BY_SOURCE, payload }
+}
+
+export const filterByGenre = (payload)=> {
+    return { type: FILTER_BY_GENRE, payload }
 }

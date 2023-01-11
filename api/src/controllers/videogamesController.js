@@ -124,12 +124,25 @@ const get_videogames = async (req,res)=> {
     }
 };
 
-const get_vg_by_id = async (req, res)=> {
+const get_vg_by_id = async (req, res, next)=> {
     const { id } = req.params;
     if(req.typeId === 'uuid') {
         //Busco en db
-        const detailDb = await Videogame.findByPk(id);
-        res.status(200).json(detailDb);
+        // const detailDb = await Videogame.findByPk(id);
+        // res.status(200).json(detailDb);
+        const detailDb = await Videogame.findOne({
+            where: {
+                id: id,
+            },
+            include: {
+                model: Genre,
+                attributes: ['id','name'],
+                through:{
+                    attributes:[] // No quiero datos de la tabla intermedia
+                }
+            },
+        });
+        res.status(200).json(detailDb)
     } else { 
         //Busco en api
         const detailApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=${YOUR_API_KEY}`);
@@ -138,16 +151,16 @@ const get_vg_by_id = async (req, res)=> {
                 id: videogames.id,
                 name: videogames.name, 
                 description: videogames.description,
+                released: videogames.released, 
+                rating: videogames.rating, 
+                platforms: videogames.platforms.map(e => e.platform.name), 
+                background_image: videogames.background_image,
                 genres: videogames.genres.map((genre)=> {
                     return{
                         id: genre.id,
                         name: genre.name,
-                    };
-                }),
-                released: videogames.released, 
-                rating: videogames.rating, 
-                platforms: videogames.platforms.map(e => e.platform.name), 
-                background_image: videogames.background_image
+                    }
+                })
             };
         })
         res.status(200).json([...mapDetailApi]);

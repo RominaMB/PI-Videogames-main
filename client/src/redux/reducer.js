@@ -1,9 +1,14 @@
-import { CLEAN_VIDEOGAMES_DETAILS, GET_ALL_VIDEOGAMES, GET_VIDEOGAMES_DETAILS, GET_GENRES, GET_PLATFORMS,
-         SEARCH_GAMES_BY_NAME,
-         ORDER_BY,
-         FILTER_BY_SOURCE,
-         FILTER_BY_GENRE
-    } from './actions';
+import {
+    CLEAN_VIDEOGAMES_DETAILS,
+    GET_ALL_VIDEOGAMES,
+    GET_VIDEOGAMES_DETAILS,
+    GET_GENRES, 
+    GET_PLATFORMS,
+    SEARCH_GAMES_BY_NAME,
+    ORDER_BY,
+    FILTER_BY_SOURCE,
+    FILTER_BY_GENRE
+} from './actions';
 
 //Punto de partida cuando comience la aplicacion
 const initialState = { 
@@ -96,7 +101,7 @@ const rootReducer = (state = initialState, action)=> {
             ...state,
             allVideogames: filter
         }
-        case FILTER_BY_GENRE:
+        case FILTER_BY_GENRE: //ver!!
             let getGamesGenre = state.videogamesForFilter;
             let aux = [];
             if(action.payload) {

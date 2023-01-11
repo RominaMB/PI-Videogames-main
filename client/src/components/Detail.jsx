@@ -27,7 +27,7 @@ const Detail = ()=> {
         <>
             <Nav/>
             <body>
-            <div className={s.detail__page}>{/* <h2>Soy DETAIL del GAME {id}</h2> */}
+            <div className={s.detail__page}> <h2>Soy DETAIL del GAME {id}</h2>
             
             {details.map(game=> {
                 return(

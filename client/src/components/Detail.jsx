@@ -10,24 +10,26 @@ import Nav from './Nav';
 const Detail = ()=> {
 
     const { id } = useParams();
-    const dispatch = useDispatch();
-    //const { name, genres, description, released, rating, platforms, background_image } = details;
-    const details = useSelector((state)=> state.details);
+    const dispatch = useDispatch(); // para usar las actions
+    const details = useSelector((state)=> state.details); // para usar el estado
 
     
     useEffect(()=> {
         dispatch(getVideogamesDetails(id)); //se encarga de hacer dispatch de la action que pida el detalle del personaje de la API
-        console.log(id)
         return()=>{
         dispatch(cleanVgDetails()); //cuando se desmonta el componente, despacho una action que limpie 
         }                           //ese estado 'detail' (asi no veo el detail del game anterior)
     },[dispatch, id]);
 
+    useEffect(() => {
+        console.log(details);
+      }, [details])
+
     return(
         <>
             <Nav/>
             <body>
-            <div className={s.detail__page}> <h2>Soy DETAIL del GAME {id}</h2>
+            <div className={s.detail__page}> {/*<h2>Soy DETAIL del GAME {id}</h2> */}
             
             {details.map(game=> {
                 return(

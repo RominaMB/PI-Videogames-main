@@ -35,8 +35,8 @@
 }
 
 .description {
-    text-align:justify;
-    /* text-size-adjust:inherit; */
+    text-align:center;
+    text-size-adjust:inherit;
     margin-left: 15%;
     margin-right: 15%;
 }

@@ -142,7 +142,8 @@ const get_vg_by_id = async (req, res, next)=> {
                 }
             },
         });
-        res.status(200).json(detailDb)
+        res.status(200).json(detailDb);
+
     } else { 
         //Busco en api
         const detailApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=${YOUR_API_KEY}`);
@@ -163,7 +164,7 @@ const get_vg_by_id = async (req, res, next)=> {
                 })
             };
         })
-        res.status(200).json([...mapDetailApi]);
+        res.status(200).json(...mapDetailApi);
     }
 };
 

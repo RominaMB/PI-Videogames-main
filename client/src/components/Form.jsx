@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getGenres, postNewVideogame } from '../redux/actions';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import axios from 'axios';
 import s from './Form.module.css';
@@ -88,10 +88,6 @@ const Form = ()=> {
           })
         }
         
-    
-
-    
-
     //axios.post('url',form)
 
     const submitHandler=(e)=> {
@@ -123,43 +119,59 @@ const Form = ()=> {
             <h2 className={s.form__title}>CREATE YOUR VIDEOGAME</h2>
 
             <div>
-            <label htmlFor='name'>Name:</label>
+            <label className={s.form__label}>Name:</label>
             <input
                 type='text' 
                 name='name'  
                 placeholder='name' 
                 value={form.name} 
                 onChange={handleChange}
+                className={s.form__input}
             />
             </div>
             
             <br></br>
             <div>
-            <label htmlFor='released'>Released Date:</label>
+            <label className={s.form__label}>Released Date:</label>
             <input 
                 type='text' 
                 name='released' 
                 placeholder='released' 
                 value={form.released} 
                 onChange={handleChange}
+                className={s.form__input}
             />
             </div>
 
             <br></br>
             <div>
-            <label htmlFor='rating'>Rating:</label>
+            <label className={s.form__label}>Rating:</label>
             <input 
                 type='number' 
                 name='rating' 
                 placeholder='0.00' 
                 value={form.rating} 
                 onChange={handleChange}
+                className={s.form__input}
             />
             </div>
 
             <br></br>
             <div>
-            <label htmlFor='description'>Description:</label>
+            <label className={s.form__label}>Image:</label>
+            <input 
+                type='text'
+                name='image' 
+                placeholder='https://url.jpg' 
+                accept='.jpg, .jpeg, .png, .webp'
+                onChange={handleChange}
+                className={s.form__input}
+            />
+            </div>
+
+            <br></br>
+            <div>
+            <label className={s.form__label}>Description:</label>
             <textarea
                 type='text' 
                 name='description' 
@@ -168,12 +180,13 @@ const Form = ()=> {
                 rows='5'
                 value={form.description} 
                 onChange={handleChange}
+                className={s.form__textbox}
             />
             </div>
 
             <br></br>
             <div>
-            <label id=''htmlFor='plat'>Select Platforms:</label>
+            <label className={s.form__label}>Select Platforms:</label>
                 <select 
                     id='plat'
                     value='title'
@@ -183,8 +196,8 @@ const Form = ()=> {
                         {platforms.map((p)=> {
                         return (
                         <option 
-                        key={p} 
-                        value={p}>{p}</option>
+                        key={p.id} 
+                        value={p.name}>{p}</option>
                         )
                         })}
                 </select>
@@ -206,7 +219,7 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <label>Select Genres:</label>
+            <label className={s.form__label}>Select Genres:</label>
                 <select 
                 id='gen'
                 value='title'
@@ -235,19 +248,6 @@ const Form = ()=> {
                 </div>
             ))}
             </div>           
-
-
-            <br></br>
-            <div>
-            <label htmlFor='image'>Image:</label>
-            <input 
-                type='text'
-                name='image' 
-                placeholder='https://url.jpg' 
-                accept='.jpg, .jpeg, .png, .webp'
-                onChange={handleChange}
-            />
-            </div>
 
             <br></br>
             <div>

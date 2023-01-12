@@ -32,6 +32,7 @@ html, body {
     color: rgb(4, 74, 83);
     border: 1px solid transparent;
     border-radius: 30px;
+    text-align:center;
 }
 
 .button__searchbar{

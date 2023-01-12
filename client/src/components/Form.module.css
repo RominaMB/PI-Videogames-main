@@ -16,3 +16,44 @@
     color: rgb(4, 74, 83);
 }
 
+.form__label {
+    display: flex;
+    margin-left: 150px;
+}
+
+.form__input {
+    border: none;
+    background: rgba(255, 255, 255, 0.664);
+    margin: 0%;
+    padding: 4px 90px;
+    font-size: 14px;
+    /* font-weight: bold; */
+    color: rgb(4, 74, 83);
+    border: 1px solid transparent;
+    border-radius: 30px;
+    text-align: initial;
+}
+
+.form__input:focus{
+    box-shadow: 0 0 2px 0 #1183d6;
+    border-color: rgb(147,191,202);
+    outline: none;
+}
+
+.form__textbox {
+    border: none;
+    background: rgba(255, 255, 255, 0.664);
+    margin: 0.5%;
+    padding: 4px 50px;
+    font-size: 14px;
+    /* font-weight: bold; */
+    color: rgb(4, 74, 83);
+    border: 1px solid transparent;
+    border-radius: 30px;
+}
+
+.form__textbox:focus {
+    box-shadow: 0 0 2px 0 #1183d6;
+    border-color: rgb(147,191,202);
+    outline: none;
+}

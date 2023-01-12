@@ -4,6 +4,7 @@ import {
     GET_VIDEOGAMES_DETAILS,
     GET_GENRES, 
     GET_PLATFORMS,
+    POST_NEW_VIDEOGAME,
     SEARCH_GAMES_BY_NAME,
     ORDER_BY,
     FILTER_BY_SOURCE,
@@ -16,7 +17,7 @@ const initialState = {
     videogamesForFilter: [],
     details: [], // {} Es un objeto porque tiene la informacion de un solo personaje
     genres: [],
-    platforms: [],
+    platforms: []
 };
 
 const rootReducer = (state = initialState, action)=> {
@@ -32,6 +33,8 @@ const rootReducer = (state = initialState, action)=> {
             return {...state, genres: action.payload};
         case GET_PLATFORMS:
             return {...state, platforms: action.payload};
+        case POST_NEW_VIDEOGAME:
+            return {...state}
         case SEARCH_GAMES_BY_NAME:
             return{...state, allVideogames: action.payload};
         case ORDER_BY:

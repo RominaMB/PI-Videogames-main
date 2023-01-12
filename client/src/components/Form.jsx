@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux';
-//import { useEffect } from 'react'; 
-import { useState } from 'react';
-import { getAllVideogames, getGenres, getPlatforms } from '../redux/actions';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { getGenres, postNewVideogame } from '../redux/actions';
+import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import axios from 'axios';
 import s from './Form.module.css';
@@ -13,24 +11,38 @@ import s from './Form.module.css';
 const Form = ()=> {
     
     const dispatch = useDispatch();
-    // const genres = useSelector((state)=> state.genres);
-    // const platforms = useSelector((state)=> state.platforms);
+    const genres = useSelector((state)=> state.genres);
     // const allVideogames = useSelector((state)=> state.allVideogames);
     //const [errors, setErrors] = useState({});
-    const genres = useSelector((state)=> state.genres);
+    const platforms = [
+        'PC',
+        'Linux',
+        'Xbox One',
+        'PlayStation 4',
+        'PlayStation 5',
+        'Wii U',
+        'Nintendo Switch',
+        'Mac OS',
+        'iOS',
+        'Nintendo 3DS',
+        'Android',
+        'Steam Deck', 
+    ];
+
     const [form, setForm] = useState({
         name:'',
         description:'',
         released:'',
         rating:'',
         platforms:[],
+        genres:[],
         image:''
     }) 
 
     useEffect(()=>{
+        if(!genres.length) dispatch(getGenres());
+        // dispatch(getPlatforms());
     //    dispatch(getAllVideogames());
-    if(!genres.length) dispatch(getGenres());
-    //    dispatch(getPlatforms())
     }, [dispatch])
 
     const handleChange =(e)=> {
@@ -41,26 +53,44 @@ const Form = ()=> {
             [property]:value
         })
     }
+    
+    const  handleGenres =(e)=> {
+        const value = e.target.value;
+        if(!form.genres.includes(value)) {
+          setForm({
+            ...form,
+            genres: [...form.genres, value],
+          })
+        }
+      }
 
-    // const  handleGenres =(e)=> {
-    //     const value = e.target.value;
-    //     if(!input.genres.includes(value)) {
-    //       setInput({
-    //         ...input,
-    //         genres: [...input.genres, value],
-    //       })
-    //     }
-    //   }
+    const  handlePlatforms =(e)=> {
+        const value = e.target.value;
+        if(!form.platforms.includes(value)) {
+          setForm({
+            ...form,
+            platforms: [...form.platforms, value],
+          })
+        }
+      }
+    
+    const handleDeleteGenre =(e)=> {
+        setForm({
+            ...form,
+            genres: form.genres.filter((g)=> g !==e),
+          })
+        }
+        
+    const handleDeletePlatform =(e)=> {
+        setForm({
+            ...form,
+            platforms: form.platforms.filter((p)=> p !==e),
+          })
+        }
+        
+    
 
-    //   const  handlePlatforms =(e)=> {
-    //     const value = e.target.value;
-    //     if(!form.platforms.includes(value)) {
-    //       setForm({
-    //         ...form,
-    //         platforms: [...form.genres, value],
-    //       })
-    //     }
-    //   }
+    
 
     //axios.post('url',form)
 
@@ -79,18 +109,21 @@ const Form = ()=> {
 //el prevent default van en el submit del formulario, no en los handlers.
 
     return(
-    <body>
+    <>
         
         {/* <a href='./enlaces.html' target='_self'>Back</a> */}
+        {/* <div>
+            <Link to='/videogames'><button>X</button></Link>
+        </div> */}
         <Nav/>
-        <div className={s.form__page} >
+        <div className={s.form__page}>
         <form className={s.form__container} autoComplete='off' onSubmit={submitHandler}>
         
             
             <h2 className={s.form__title}>CREATE YOUR VIDEOGAME</h2>
-            
+
             <div>
-            <label for='name'>Name:</label>
+            <label htmlFor='name'>Name:</label>
             <input
                 type='text' 
                 name='name'  
@@ -102,7 +135,7 @@ const Form = ()=> {
             
             <br></br>
             <div>
-            <label for='released'>Released Date:</label>
+            <label htmlFor='released'>Released Date:</label>
             <input 
                 type='text' 
                 name='released' 
@@ -114,7 +147,7 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <label for='rating'>Rating:</label>
+            <label htmlFor='rating'>Rating:</label>
             <input 
                 type='number' 
                 name='rating' 
@@ -126,7 +159,7 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <label for='description'>Description:</label>
+            <label htmlFor='description'>Description:</label>
             <textarea
                 type='text' 
                 name='description' 
@@ -140,38 +173,77 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <label for='platforms'>Plataforms:</label>
-                <select name='platforms'>
-                    <option value='0' disabled>Plataforms</option>               
-                    <option value='1'>PC</option>
-                    <option value='2'>Linux</option>
-                    <option value='3'>Xbox One</option>
-                    <option value='4'>PlayStation 4</option>
-                    <option value='5'>PlayStation 5</option>
-                    <option value='6'>Wii U</option>
-                    <option value='7'>Nintendo Switch</option>
-                    <option value='8'>Mac OS</option>
-                    <option value='9'>iOS</option>
-                    <option value='10'>Nintendo 3DS</option>
-                    <option value='11'>Android</option>
-                    <option value='12'>Steam Deck</option>
+            <label id=''htmlFor='plat'>Select Platforms:</label>
+                <select 
+                    id='plat'
+                    value='title'
+                    onChange={handlePlatforms}
+                    >
+                    <option disabled value='title'>Select Platforms</option>               
+                        {platforms.map((p)=> {
+                        return (
+                        <option 
+                        key={p} 
+                        value={p}>{p}</option>
+                        )
+                        })}
+                </select>
+            </div>
+
+            <br></br>
+            <div>
+            <label>Platforms:</label>
+            {form.platforms.map((p)=> (
+                <div>
+                <div>{p}</div>
+                <button 
+                key={p} 
+                value={p} 
+                onClick={()=>handleDeletePlatform(p)}><span>x</span></button>
+                </div>
+	        ))}
+	        </div>
+
+            <br></br>
+            <div>
+            <label>Select Genres:</label>
+                <select 
+                id='gen'
+                value='title'
+                onChange={handleGenres}>
+                    <option disabled value='title'>Select Genres</option>
+                        {genres.map((g)=> {
+                        return (
+                        <option 
+                        key={g.id} 
+                        value={g.name}>{g.name}</option>
+                        )
+                        })}
                 </select>
             </div>
 
             <br></br>
             <div>
             <label>Genres:</label>
-                <select name='genres'>
-                    <option value='0' disabled>Genres</option>
-                </select>
-            </div>
+            {form.genres.map((g)=> (
+                <div>
+                <div>{g}</div>
+                <button 
+                key={g} 
+                value={g} 
+                onClick={()=>handleDeleteGenre(g)}><span>x</span></button>
+                </div>
+            ))}
+            </div>           
+
 
             <br></br>
             <div>
-            <label for='image'>Image:</label>
+            <label htmlFor='image'>Image:</label>
             <input 
-                type='file'
+                type='text'
                 name='image' 
+                placeholder='https://url.jpg' 
                 accept='.jpg, .jpeg, .png, .webp'
                 onChange={handleChange}
             />
@@ -184,8 +256,9 @@ const Form = ()=> {
             </div>
         </form>
         </div>
-    </body>
+    </>
     )
+
 }
 
 //{ name, genres, description, released, rating, platforms, background_image } ver si es image o background_image

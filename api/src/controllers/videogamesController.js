@@ -80,7 +80,7 @@ const get_videogames = async (req,res)=> {
             return {
                 id: videogames.id,
                 name: videogames.name, 
-                genres: videogames.genres, // Ver 
+                genres: videogames.genres,
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms, 
@@ -93,34 +93,36 @@ const get_videogames = async (req,res)=> {
         // });
 
         //**************** buscar todo lo de la api
-        const apiData = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`);
-
-        const mapApiData = apiData.data.results.map((videogames)=> {
-            return {
-                id: videogames.id,
-                name: videogames.name, 
-                genres: videogames.genres.map((genre)=> {
-                    return{
+        const oneHundredGames = [];
+            for(let i = 1; i <= 5; i++) {
+            let apiData = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=${i}`)
+            apiData.data.results.map(videogames => {
+                oneHundredGames.push( {
+                    id: videogames.id,
+                    name: videogames.name, 
+                    genres: videogames.genres.map((genre)=> {
+                        return{
                         id: genre.id,
                         name: genre.name,
-                    };
-                }),
-                released: videogames.released, 
-                rating: videogames.rating, 
-                platforms: videogames.platforms.map(e => e.platform.name), 
-                background_image: videogames.background_image
-            };
-        })
+                        };
+                    }),
+                    released: videogames.released, 
+                    rating: videogames.rating, 
+                    platforms: videogames.platforms.map(e => e.platform.name), 
+                    background_image: videogames.background_image
+                })
+            })
+            // return oneHundredGames
+            }
 
-
+        const response = mapDbData.concat(oneHundredGames);
+        res.status(200).json(response);
+        
         //axios
         //  .get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`)
         //  .then((response)=> console.log(response.data));
 
         //**************** juntar todo y mandar
-        const response = [...mapDbData, ...mapApiData];
-
-        res.status(200).json(response);
     }
 };
 

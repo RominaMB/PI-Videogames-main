@@ -9,7 +9,8 @@ import {
     ORDER_BY,
     FILTER_BY_SOURCE,
     FILTER_BY_GENRE,
-    FILTER_REMOVE
+
+    CHANGE_PAGE,
 } from './actions';
 
 //Punto de partida cuando comience la aplicacion
@@ -18,7 +19,10 @@ const initialState = {
     videogamesForFilter: [],
     details: [], // {} Es un objeto porque tiene la informacion de un solo personaje
     genres: [],
-    platforms: []
+    platforms: [],
+
+    videogamesPerPage: 9, 
+    currentPage: 1, 
 };
 
 const rootReducer = (state = initialState, action)=> {
@@ -127,6 +131,12 @@ const rootReducer = (state = initialState, action)=> {
         //         ...state,
         //         allVideogames: state.videogamesForFilter
         //     }
+        case CHANGE_PAGE:
+            return {
+                ...state,
+                currentPage: Number(action.payload)? parseInt(action.payload) : action.payload === 'Next' ? (parseInt(state.currentPage) + 1 )
+                : (parseInt(state.currentPage) - 1 )
+            }
         default:
             return { ...state };
 

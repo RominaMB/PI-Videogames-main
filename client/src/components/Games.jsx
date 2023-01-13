@@ -9,6 +9,13 @@ const Cards = ()=> {
 
     const dispatch = useDispatch();
     const allVideogames = useSelector((state)=> state.allVideogames);
+    const currentPage = useSelector((state)=> state.currentPage);
+    const videogamesPerPage = useSelector((state)=> state.videogamesPerPage)
+    const indexOfLastGame = currentPage * videogamesPerPage;
+    const indexOfFirstGame = indexOfLastGame - videogamesPerPage;
+    const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame);
+
+    // const [order, setOrder] = useState('')
     
     useEffect(()=> {
         dispatch(getAllVideogames());
@@ -20,10 +27,9 @@ const Cards = ()=> {
 
     return(
         <>
-            <div className={s.card__container}><h2>Soy CARDS CONTAINER </h2>
+            <div className={s.card__container}>
             
-            <ul>
-                {allVideogames.map(game=> {
+                {currentGames.map(game=> {
                     return(
                         <>
                         {/* <div className='individual__card' key={game.id}> */}
@@ -42,7 +48,6 @@ const Cards = ()=> {
                         )
                         
                 })}
-            </ul>
             </div>
         </>
     )

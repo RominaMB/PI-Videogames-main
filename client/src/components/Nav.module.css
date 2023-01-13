@@ -40,7 +40,7 @@ html, body {
 } */
 
 .nav__link {
-    margin: 5px;
+    margin: 10px;
     font-weight: bold;
     width: 1px;   
     text-decoration: none;

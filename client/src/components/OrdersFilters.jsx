@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { orderBy, filterBySource, filterByGenre, getGenres } from '../redux/actions';
+import { getGenres, orderBy, filterBySource, filterByGenre, filterRemove } from '../redux/actions';
 
 const OrdersFilters = () => {
 
@@ -10,6 +10,7 @@ const OrdersFilters = () => {
         const [genreSelect, setGenreSelect] = useState();
 
         const handleSort = (e)=> {
+                //if() return dispatch(filterRemove());
                 dispatch(orderBy(e.target.value))
         }
 
@@ -30,10 +31,10 @@ const OrdersFilters = () => {
         return (
                 <div>
                         <select 
-                        defaultValue='title'
+                        defaultValue='All'
                         onChange={handleSort}>
 
-                                <option disabled value='title' >Order by...</option>
+                                <option disabled value='All' >Order by...</option>
                                 <option value='A-Z' >A-Z</option>
                                 <option value='Z-A' >Z-A</option>
                                 <option value='AscRating'>+ Rating</option>
@@ -45,13 +46,12 @@ const OrdersFilters = () => {
                         onChange={handleSource}>
 
                                 <option disabled value='title' >Filter by Source</option>
-                                <option name='All1'>All Videogames</option>
+                                <option name='All'>All Videogames</option>
                                 <option value='api'>From our List</option>
                                 <option value='uuid'>Created by Users</option>
                         </select>
 
                         <select 
-                        id='genre'
                         value={genreSelect}
                         onChange={handleGenre}>
 

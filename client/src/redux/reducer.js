@@ -8,7 +8,8 @@ import {
     SEARCH_GAMES_BY_NAME,
     ORDER_BY,
     FILTER_BY_SOURCE,
-    FILTER_BY_GENRE
+    FILTER_BY_GENRE,
+    FILTER_REMOVE
 } from './actions';
 
 //Punto de partida cuando comience la aplicacion
@@ -42,9 +43,6 @@ const rootReducer = (state = initialState, action)=> {
                 let order 
                 
                 switch(action.payload){
-                    case 'All':
-                        order = [...state.allVideogames];
-                        break;
                     case 'A-Z':
                         order = gamesCopy.sort((a,b)=> {
                         a= a.name.toLowerCase();
@@ -112,8 +110,9 @@ const rootReducer = (state = initialState, action)=> {
                     if(e.genres.some(e => e.name === action.payload)) {
                         return e.genres.map(g => g.name)
                     } 
-                    if(action.payload === 'All Genres')
+                    else if(action.payload === 'All Genres') {
                         return getGamesGenre
+                    }
                     })
     
             } else {
@@ -122,6 +121,11 @@ const rootReducer = (state = initialState, action)=> {
             return {
                 ...state,
                 allVideogames: aux,
+            }
+        case FILTER_REMOVE:
+            return{
+                ...state,
+                allVideogames: state.videogamesForFilter
             }
         default:
             return { ...state };

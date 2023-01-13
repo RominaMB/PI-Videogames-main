@@ -12,6 +12,7 @@ export const SEARCH_GAMES_BY_NAME = 'SEARCH_GAMES_BY_NAME';
 export const ORDER_BY = 'ORDER_BY';
 export const FILTER_BY_SOURCE = 'FILTER_BY_SOURCE';
 export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
+export const FILTER_REMOVE = 'FILTER_REMOVE'
 
 
 //Action Creator
@@ -71,6 +72,10 @@ export const filterBySource = (payload)=> {
 
 export const filterByGenre = (genre)=> (dispatch)=> {
     return dispatch({ type: FILTER_BY_GENRE, payload:genre })
+}
+
+export const filterRemove=()=>{
+    return { type: "REMOVE_FILTERS" , payload: null}
 }
 // export function filterByGenre(genre){
 //     return function (dispatch){

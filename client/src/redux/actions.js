@@ -74,9 +74,9 @@ export const filterByGenre = (genre)=> (dispatch)=> {
     return dispatch({ type: FILTER_BY_GENRE, payload:genre })
 }
 
-export const filterRemove=()=>{
-    return { type: "REMOVE_FILTERS" , payload: null}
-}
+// export const filterRemove=()=>{
+//     return { type: "REMOVE_FILTERS" , payload: null}
+// }
 // export function filterByGenre(genre){
 //     return function (dispatch){
 //         dispatch({type:FILTER_BY_GENRE, payload:genre})

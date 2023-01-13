@@ -122,11 +122,11 @@ const rootReducer = (state = initialState, action)=> {
                 ...state,
                 allVideogames: aux,
             }
-        case FILTER_REMOVE:
-            return{
-                ...state,
-                allVideogames: state.videogamesForFilter
-            }
+        // case FILTER_REMOVE:
+        //     return{
+        //         ...state,
+        //         allVideogames: state.videogamesForFilter
+        //     }
         default:
             return { ...state };
 

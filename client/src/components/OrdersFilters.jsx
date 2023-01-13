@@ -10,7 +10,6 @@ const OrdersFilters = () => {
         const [genreSelect, setGenreSelect] = useState();
 
         const handleSort = (e)=> {
-                //if() return dispatch(filterRemove());
                 dispatch(orderBy(e.target.value))
         }
 
@@ -42,7 +41,7 @@ const OrdersFilters = () => {
                         </select>
 
                          <select 
-                        value={genreSelect}
+                        value='title'
                         onChange={handleSource}>
 
                                 <option disabled value='title' >Filter by Source</option>

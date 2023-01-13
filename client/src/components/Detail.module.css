@@ -23,6 +23,8 @@
 .detail__name {
     font-size: larger;
     font-weight: bold;
+    color: rgb(4, 74, 83);
+    padding-top: 20px;
 }
 
 .detail__img {

@@ -186,8 +186,9 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <label className={s.form__label}>Select Platforms:</label>
-                <select 
+            {/* <label className={s.form__labelSelectP}>Select Platforms:</label> */}
+                <select
+                    className={s.form__selectP} 
                     id='plat'
                     value='title'
                     onChange={handlePlatforms}
@@ -205,22 +206,9 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <label>Platforms:</label>
-            {form.platforms.map((p)=> (
-                <div>
-                <div>{p}</div>
-                <button 
-                key={p} 
-                value={p} 
-                onClick={()=>handleDeletePlatform(p)}><span>x</span></button>
-                </div>
-	        ))}
-	        </div>
-
-            <br></br>
-            <div>
-            <label className={s.form__label}>Select Genres:</label>
+            {/* <label className={s.form__labelSelectG}>Select Genres:</label> */}
                 <select 
+                className={s.form__selectG} 
                 id='gen'
                 value='title'
                 onChange={handleGenres}>
@@ -236,12 +224,28 @@ const Form = ()=> {
             </div>
 
             <br></br>
-            <div>
-            <label>Genres:</label>
-            {form.genres.map((g)=> (
-                <div>
-                <div>{g}</div>
+            <div className={s.form__selectedP}>
+            <label>Selected Platforms:</label>
+            {form.platforms.map((p)=> (
+                <div className={s.options__label}>
+                <div className={s.options__selectedP}>{p}</div>
                 <button 
+                className={s.options__btn}
+                key={p} 
+                value={p} 
+                onClick={()=>handleDeletePlatform(p)}><span>x</span></button>
+                </div>
+	        ))}
+	        </div>
+
+            <br></br>
+            <div className={s.form__selectedG}>
+            <label>Selected Genres:</label>
+            {form.genres.map((g)=> (
+                <div className={s.options__label}>
+                <div className={s.options__selectedG}>{g}</div>
+                <button 
+                className={s.options__btn}
                 key={g} 
                 value={g} 
                 onClick={()=>handleDeleteGenre(g)}><span>x</span></button>

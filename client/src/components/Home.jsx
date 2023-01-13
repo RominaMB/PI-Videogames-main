@@ -3,15 +3,18 @@ import Nav from './Nav';
 import Games from './Games'
 import OrderFilters from './OrdersFilters';
 import Paginated from './Paginated';
+import s from './Home.module.css';
 
 const Home = ()=> {
     return(
         <>
+            <div className={s.background_img}>
             <Nav/> 
             <OrderFilters/>
             <br></br>       
             <Games/>
             <Paginated/>
+            </div>
         </>
     )
 }

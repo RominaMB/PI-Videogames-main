@@ -21,7 +21,7 @@ html, body {
 }
 
 .next__button{
-    border: 2px solid rgba(34, 34, 34, 0.2);
+    border: 1px solid rgba(34, 34, 34, 0.2);
     border-radius: 1em;
     padding: 0.25em 1em;
 }
@@ -34,7 +34,7 @@ html, body {
 }
 
 .prev__button{
-    border: 2px solid rgba(34, 34, 34, 0.2);
+    border: 1px solid rgba(34, 34, 34, 0.2);
     border-radius: 1em;
     padding: 0.25em 1em;
 }
@@ -47,7 +47,7 @@ html, body {
 }
 
 .button{
-    border: 2px solid rgba(34, 34, 34, 0.2);
+    border: 1px solid rgba(34, 34, 34, 0.2);
     border-radius: 1em;
     padding: 0.25em 1em;
 }
@@ -64,7 +64,7 @@ html, body {
 }
 
 .current__button {
-    border: 2px solid rgba(34, 34, 34, 0.2);
+    border: 1px solid rgba(34, 34, 34, 0.2);
     border-radius: 1em;
     padding: 0.25em 1em;
     color: white;

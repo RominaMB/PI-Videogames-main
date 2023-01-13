@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGenres, orderBy, filterBySource, filterByGenre, filterRemove } from '../redux/actions';
+import s from './OrderFilters.module.css';
 
 const OrdersFilters = () => {
 
@@ -28,8 +29,9 @@ const OrdersFilters = () => {
         }, [dispatch])
 
         return (
-                <div>
+                <div className={s.select__container}>
                         <select 
+                        className={s.select__one}
                         defaultValue='All'
                         onChange={handleSort}>
 
@@ -40,7 +42,8 @@ const OrdersFilters = () => {
                                 <option value='DescRating'>- Rating</option>
                         </select>
 
-                         <select 
+                        <select
+                        className={s.select__two} 
                         value='title'
                         onChange={handleSource}>
 
@@ -50,7 +53,8 @@ const OrdersFilters = () => {
                                 <option value='uuid'>Created by Users</option>
                         </select>
 
-                        <select 
+                        <select
+                        className={s.select__three} 
                         value={genreSelect}
                         onChange={handleGenre}>
 

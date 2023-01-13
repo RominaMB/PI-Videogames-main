@@ -255,8 +255,8 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <input type='reset' value='RESET'/>
-            <input type='submit' value='SUBMIT'/>
+            <input className={s.reset} type='reset' value='RESET'/>
+            <input className={s.submit} type='submit' value='SUBMIT'/>
             </div>
         </form>
         </div>

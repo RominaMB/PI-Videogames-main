@@ -22,12 +22,12 @@ const Paginated = ()=> {
     }
    
     return (
-        <div className='paginated'>
+        <div className={s.paginated}>
             <div className={s.button__container}>
                  {pageNumbers && currentPage > 1 ? <button  className={s.prev__button} value= 'Prev' onClick={handlerChangePage}>Prev</button> : null}  
                
                     {pageNumbers?.map(number => (            
-                        <button key={number} className={currentPage === number ? 'current__button' : 'button'} value={number} onClick={handlerChangePage}>{number}</button>
+                        <button key={number} className={currentPage === number ? s.current__button : s.button} value={number} onClick={handlerChangePage}>{number}</button>
                     ))}
               
                  {pageNumbers && currentPage < pageNumbers.length ? <button className={s.next__button} value = 'Next' onClick={handlerChangePage}>Next</button> : null} 

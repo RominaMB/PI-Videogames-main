@@ -8,8 +8,8 @@ const Home = ()=> {
     return(
         <>
             <Nav/> 
-            <OrderFilters/>        
-            <h2>Soy HOME PAGE</h2>
+            <OrderFilters/>
+            <br></br>       
             <Games/>
             <Paginated/>
         </>

@@ -1,0 +1,72 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.paginated {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button__container{
+    margin-top: 3em;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.next__button{
+    border: 2px solid rgba(34, 34, 34, 0.2);
+    border-radius: 1em;
+    padding: 0.25em 1em;
+}
+
+.next__button:hover{
+    color: white;
+    background-color: rgb(4, 74, 83);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.prev__button{
+    border: 2px solid rgba(34, 34, 34, 0.2);
+    border-radius: 1em;
+    padding: 0.25em 1em;
+}
+
+.prev__button:hover{
+    color: white;
+    background-color: rgb(4, 74, 83);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.button{
+    border: 2px solid rgba(34, 34, 34, 0.2);
+    border-radius: 1em;
+    padding: 0.25em 1em;
+}
+
+.button:active{
+    background-color: rgba(67,97,31,0822);
+}
+
+.button:hover{
+    color: white;
+    background-color: rgb(4, 74, 83);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.current__button {
+    border: 2px solid rgba(34, 34, 34, 0.2);
+    border-radius: 1em;
+    padding: 0.25em 1em;
+    color: white;
+    background-color: rgb(4, 74, 83);
+}

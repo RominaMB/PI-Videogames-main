@@ -80,3 +80,10 @@
 /* .game__name:hover {
     color: rgb(204,141,164)
 } */
+
+.game__rating {
+    color: rgba(250, 122, 97, 0.87);
+    display: inline-block;
+    font-weight: bold;
+    /* border-color: black; */
+}

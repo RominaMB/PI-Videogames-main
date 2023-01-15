@@ -12,7 +12,7 @@ const Detail = ()=> {
     const { id } = useParams();
     const dispatch = useDispatch(); // para usar las actions
     const details = useSelector((state)=> state.details); // para usar el estado
-
+    var regexp = /(<([^>]+)>)/gi;
     
     useEffect(()=> {
         dispatch(getVideogamesDetails(id)); //se encarga de hacer dispatch de la action que pida el detalle del personaje de la API
@@ -20,10 +20,6 @@ const Detail = ()=> {
         dispatch(cleanVgDetails()); //cuando se desmonta el componente, despacho una action que limpie 
         }                           //ese estado 'detail' (asi no veo el detail del game anterior)
     },[dispatch, id]);
-
-    useEffect(() => {
-        console.log(details);
-      }, [details])
 
     return(
         <>
@@ -43,23 +39,22 @@ const Detail = ()=> {
 
                     <br></br>
                     <div className={s.detail__label}><label for='genres'>Genres:</label></div>
-                    {game.genres?.map(g=> (g.name ? g.name : g))};
+                    {game.genres?.map(g=> (g.name ? g.name : g)).join(' | ')} 
                     
                     <br></br>
                     <div className={s.detail__label}><label for='rating'>Rating:</label></div>
-                    {game.rating}
+                    {game.rating + ' / 5'}
                     <br></br>
 
                     <div className={s.detail__label}><label for='description'>Description:</label></div>
-                    <div className={s.description}>{game.description}</div>
+                    <div className={s.description}>{game.description.replaceAll(regexp, ' ').replaceAll('&#39', '').replaceAll('game;s', 'games').replaceAll(';s', "'s") || 'Not Specified' }</div>
 
-                    <br></br>
                     <div className={s.detail__label}><label for='released'>Released:</label></div>
-                    {game.released}
+                    {game.released.split("-").reverse().join("/")}
 
                     <br></br>
                     <div className={s.detail__label}><label for='platforms'>Platforms:</label></div>
-                    {game.platforms}
+                    {game.platforms.join(' , ')}
                     </div>    
                 )
                 

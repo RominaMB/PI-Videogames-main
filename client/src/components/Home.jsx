@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from './Nav';
 import Games from './Games'
-import OrderFilters from './OrdersFilters';
+import OrdersFilters from './OrdersFilters';
 import Paginated from './Paginated';
 import s from './Home.module.css';
 
@@ -9,8 +9,8 @@ const Home = ()=> {
     return(
         <>
             <div className={s.background_img}>
-            <Nav/> 
-            <OrderFilters/>
+            <Nav/>
+            <OrdersFilters/>
             <br></br>       
             <Games/>
             <Paginated/>

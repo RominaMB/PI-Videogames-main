@@ -15,11 +15,6 @@ html, body {
     border-bottom: 1px solid #e0e0e0;
       
 }
- 
-/* .nav__title {
-    height: 5px;
-    width: 5px;
-}   */
 
 .nav__img {
     width: 100px;
@@ -32,12 +27,6 @@ html, body {
     scale: 1.2;
     transition: 0.5s;
 }
-
-/* 
-.nav___alllinks {
-    margin: 5px;
-    background-color: blue;
-} */
 
 .nav__link {
     margin: 10px;

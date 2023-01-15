@@ -29,21 +29,20 @@ const Cards = ()=> {
         <>
             <div className={s.card__container}>
             
-                {currentGames.map(game=> {
+                {currentGames.map((game)=> {
                     return(
                         <>
                         {/* <div className='individual__card' key={game.id}> */}
-                        <div className={s.individual__card}>
+                        <div key={game.id} className={s.individual__card}>
                             <Link to= {`/videogames/${game.id}`}>
-                            <div><img className={s.game__img} src={game.background_image} alt='game'/></div>
+                            <img className={s.game__img} src={game.background_image} alt='game'/>
                             <div className={s.game__name}>{game.name}</div>
                             <br></br>
                             <div className={s.game__genres}>{game.genres?.map(g=> (g.name ? g.name : g)).join(" | ")}</div>
                             <br></br>
                             <div className={s.game__rating}>{game.rating}★</div>
 
-                            </Link>
-                            
+                            </Link>  
                         </div>
                         {/* </div> */}
                         </>

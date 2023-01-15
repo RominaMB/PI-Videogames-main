@@ -7,7 +7,6 @@ export const GET_VIDEOGAMES_DETAILS = 'GET_VIDEOGAMES_DETAILS';
 export const CLEAN_VIDEOGAMES_DETAILS = 'CLEAN_VIDEOGAMES_DETAILS';
 export const GET_GENRES = 'GET_GENRES';
 export const GET_PLATFORMS = 'GET_PLATFORMS';
-export const POST_NEW_VIDEOGAME = 'POST_NEW_VIDEOGAME';
 export const SEARCH_GAMES_BY_NAME = 'SEARCH_GAMES_BY_NAME';
 
 export const ORDER_BY = 'ORDER_BY';
@@ -44,20 +43,6 @@ export const getGenres = ()=> async (dispatch) => {
         dispatch({ type: GET_GENRES, payload: response.data }))
 }
 
-export const getPlatforms = ()=> async (dispatch) => {
-    return await axios
-    .get(`${URL_SERVER}/videogames/platforms`) // ver /platforms o /videogames/platforms
-    .then((response)=>
-        dispatch({ type: GET_PLATFORMS, payload: response.data }))
-}
-
-export const postNewVideogame = ()=> async (dispatch) => {
-    return await axios
-    .get(`${URL_SERVER}/videogames`)
-    .then((response)=>
-        dispatch({ type: POST_NEW_VIDEOGAME, payload: response.data }))
-}
-
 export const searchGame = (name)=> async (dispatch)=> {
     return await axios
     .get(`${URL_SERVER}/videogames?name=${name}`)
@@ -80,12 +65,26 @@ export const filterByGenre = (genre)=> (dispatch)=> {
 // export const filterRemove=()=>{
 //     return { type: "REMOVE_FILTERS" , payload: null}
 // }
-// export function filterByGenre(genre){
-//     return function (dispatch){
-//         dispatch({type:FILTER_BY_GENRE, payload:genre})
-//     }
-// }
 
 export const changePage = (payload)=> (dispatch)=> {
     return dispatch({ type: CHANGE_PAGE, payload })
 }
+
+// export function postNewVideogame (payload) {
+//     return async function(dispatch) {
+//         try {
+//             const response = await axios.post(`${URL_SERVER}/videogames`,payload);
+//             return (
+//                 dispatch({
+//                         type: POST_NEW_VIDEOGAME,
+//                         payload: response.data
+//                 })
+//             )
+//         }
+//         catch (e) {
+//             alert(e.response.data)
+//             console.log(e)
+//         }
+//     }
+    
+// }

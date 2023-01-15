@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react'; 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getVideogamesDetails, cleanVgDetails } from '../redux/actions';
 import s from './Detail.module.css';
 import Nav from './Nav';
@@ -30,6 +30,7 @@ const Detail = ()=> {
             {details.map(game=> {
                 return(
                     <div className={s.detail__container}>
+                    <Link to='/videogames'><button className={s.back__btn}>X</button></Link>
                     <div className={s.detail__name}>
                     {game.name}
                     </div>

@@ -4,6 +4,28 @@ html, body {
     width: 100%;
     height: 100%;
 }
+.back__btn{
+    position: absolute;
+    top: 110px;
+    margin-left: 23rem;
+    border: 1px;
+    border-color: rgba(128, 128, 128, 0.356);
+    background-color: rgba(128, 128, 128, 0.233);
+    padding: 4px 8px;
+    border-radius: 100px;
+}
+
+.back__btn:hover{
+    scale: 1.1;
+    transition: 0.5s;
+    color: white;
+    /* box-shadow: 0 0 5px 0 rgba(95, 195, 183, 0.397);
+    border-color: rgba(147, 191, 202, 0.219);
+    background-color: rgb(95,195,183); */
+    background-color:rgb(4, 74, 83);
+    box-shadow: 0 0 2px 0 rgba(4, 74, 83, 0.301);
+    outline: none;
+}
 
 .about__page {
     display: flex;

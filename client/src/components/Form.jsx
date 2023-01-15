@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getGenres, postNewVideogame } from '../redux/actions';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import axios from 'axios';
 import s from './Form.module.css';
@@ -115,7 +115,7 @@ const Form = ()=> {
         <div className={s.form__page}>
         <form className={s.form__container} autoComplete='off' onSubmit={submitHandler}>
         
-            
+        <Link to='/videogames'><button className={s.back__btn}>X</button></Link>
             <h2 className={s.form__title}>CREATE YOUR VIDEOGAME</h2>
 
             <div>

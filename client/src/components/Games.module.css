@@ -15,9 +15,11 @@
     grid-template-columns: repeat(3, 1fr);
     margin: 0 auto;
     grid-gap:10px;
-    padding: 0 1em;
+    padding: 1em 1em;
     max-width: 1200px;
     width: 100%;
+    background-color: rgba(128, 128, 128, 0.041);
+    border-radius: 15px;
 }
 
 .individual__card{
@@ -68,7 +70,7 @@
 }
 
 .individual__card:hover{
-    background-color: rgba(145, 190, 201, 0.288);
+    background-color:rgba(96, 196, 183, 0.466);
     transition: 0.5s;
     transform: scale(1.04);   
 }

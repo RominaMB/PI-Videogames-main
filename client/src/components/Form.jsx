@@ -142,7 +142,8 @@ const Form = ()=> {
 
     const submitHandler=(e)=> {
         e.preventDefault()
-        axios.post('/videogames', form)
+        axios
+        .post('http://localhost:3001/videogames', form)
         .then(() =>{
             alert(`El videogame ${form.name} was created successfully`);
             setForm({
@@ -154,7 +155,8 @@ const Form = ()=> {
               platforms: [],
         })})
         history.push('/videogames');
-    }
+        history.go(0)
+      }
 
     return(
     <>
@@ -273,7 +275,7 @@ const Form = ()=> {
                         return (
                         <option
                         key={g.id}
-                        value={g.name}>{g.name}</option>
+                        value={g.id}>{g.name}</option>
                         )
                         })}
                 </select>
@@ -295,10 +297,11 @@ const Form = ()=> {
             <br></br>
             <div className={s.form__selectedG}>
             <label>Selected Genres:</label>
-            {form.genres.map((e)=> (
+            {form.genres.map((e, i)=> (
                 <div className={s.options__label}>
-                <div className={s.options__selectedG}>{e}</div>
+                <div className={s.options__selectedG}>{genres && genres.find(gen => gen.id == e).name}</div>
                 <button
+                key = {i}
                 className={s.options__btn}
                 onClick={()=>handleDeleteGenre(e)}><span>x</span></button>
                 </div>

@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { getAllVideogames } from '../redux/actions';
 import { Link } from 'react-router-dom';
 import s from './Games.module.css';
+import Loading from './Loading';
 
 const Cards = ()=> {
 
@@ -28,7 +29,7 @@ const Cards = ()=> {
     return(
         <>
             <div className={s.card__container}>
-            
+            {currentGames.length === 0 && <Loading />}
                 {currentGames.map((game)=> {
                     return(
                         <>

@@ -12,6 +12,7 @@ export const SEARCH_GAMES_BY_NAME = 'SEARCH_GAMES_BY_NAME';
 export const ORDER_BY = 'ORDER_BY';
 export const FILTER_BY_SOURCE = 'FILTER_BY_SOURCE';
 export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
+
 // export const FILTER_REMOVE = 'FILTER_REMOVE'
 
 export const CHANGE_PAGE = 'CHANGE_PAGE';
@@ -62,29 +63,7 @@ export const filterByGenre = (genre)=> (dispatch)=> {
     return dispatch({ type: FILTER_BY_GENRE, payload:genre })
 }
 
-// export const filterRemove=()=>{
-//     return { type: "REMOVE_FILTERS" , payload: null}
-// }
-
 export const changePage = (payload)=> (dispatch)=> {
     return dispatch({ type: CHANGE_PAGE, payload })
 }
 
-// export function postNewVideogame (payload) {
-//     return async function(dispatch) {
-//         try {
-//             const response = await axios.post(`${URL_SERVER}/videogames`,payload);
-//             return (
-//                 dispatch({
-//                         type: POST_NEW_VIDEOGAME,
-//                         payload: response.data
-//                 })
-//             )
-//         }
-//         catch (e) {
-//             alert(e.response.data)
-//             console.log(e)
-//         }
-//     }
-    
-// }

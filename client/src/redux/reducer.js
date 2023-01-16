@@ -9,6 +9,7 @@ import {
     FILTER_BY_GENRE,
 
     CHANGE_PAGE,
+    LOADING_PAGE,
 } from './actions';
 
 //Punto de partida cuando comience la aplicacion
@@ -20,14 +21,14 @@ const initialState = {
     platforms: [],
 
     videogamesPerPage: 9, 
-    currentPage: 1, 
+    currentPage: 1,
 };
 
 const rootReducer = (state = initialState, action)=> {
 //Varios casos posibles - ver loading: false
     switch(action.type) {
         case GET_ALL_VIDEOGAMES:
-            return { ...state, allVideogames: action.payload, videogamesForFilter: action.payload };
+            return {...state, allVideogames: action.payload, videogamesForFilter: action.payload};
         case GET_VIDEOGAMES_DETAILS:
             return {...state, details: [action.payload]};
         case CLEAN_VIDEOGAMES_DETAILS:

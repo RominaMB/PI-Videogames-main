@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react'; 
+import { useEffect, useState } from 'react'; 
 import { getAllVideogames } from '../redux/actions';
 import { Link } from 'react-router-dom';
 import s from './Games.module.css';
 import Loading from './Loading';
+import Error from './Error';
 
 const Cards = ()=> {
 
@@ -15,23 +16,24 @@ const Cards = ()=> {
     const indexOfLastGame = currentPage * videogamesPerPage;
     const indexOfFirstGame = indexOfLastGame - videogamesPerPage;
     const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame);
-  
-    useEffect(()=> {
-        dispatch(getAllVideogames());
+    
+    const [carga, setCarga] = useState(true);
 
-        return()=>{
-            console.log('Componente Desmonte')
-        }
+    useEffect(()=> {
+        dispatch(getAllVideogames()).then(() => setCarga(false));
     },[dispatch])
+
+    if (carga) {
+        return <Loading/>
+    }
 
     return(
         <>
             <div className={s.card__container}>
-            {currentGames.length === 0 && <Loading />}
-                {currentGames.map((game)=> {
+            {currentGames.length > 1 ?
+                (currentGames.map((game)=> {
                     return(
                         <>
-                        {/* <div className='individual__card' key={game.id}> */}
                         <div key={game.id} className={s.individual__card}>
                             <Link to= {`/videogames/${game.id}`}>
                             <img className={s.game__img} src={game.background_image} alt='game'/>
@@ -43,11 +45,11 @@ const Cards = ()=> {
 
                             </Link>  
                         </div>
-                        {/* </div> */}
                         </>
-                        )
-                        
-                })}
+                        )    
+                })) : 
+                <div> <Error/> </div>
+            }
             </div>
         </>
     )

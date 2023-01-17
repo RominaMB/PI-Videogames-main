@@ -16,10 +16,13 @@ function validate (form) {
       errors.name = 'Only letters, numbers, hypens(-), and parentheses are accepted'
     }
 
-    if(form.background_image.length !== 0 && !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(form.background_image)){
-      errors.image='Invalid URL'
+    if(!form.background_image){
+      errors.background_image = 'Image is required'
+    } else if(form.background_image.length !== 0 && !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(form.background_image)){
+      errors.background_image='Invalid URL'
     }
 
+  
     if(!form.description) {
       errors.description = 'Description is required'
     } else if (form.description.length > 255) {
@@ -37,6 +40,15 @@ function validate (form) {
     } else if(form.rating < 0) {
       errors.rating = 'Rating cant be a negative number'
     }
+
+    if(!form.genres) {
+      errors.genres = 'At least 1 genre is required'
+    }
+    
+    if(!form.platforms) {
+      errors.platforms = 'At least 1 platform is required'
+    }
+
 
     return errors
   }
@@ -100,12 +112,12 @@ const Form = ()=> {
             genres: [...form.genres, value],
           })
         }
-        setErrors(
-            validate({
-              ...form,
-              genres: [...form.genres, value],
-            })
-          );
+        // setErrors(
+        //     validate({
+        //       ...form,
+        //       genres: [...form.genres, value],
+        //     })
+        //   );
 
       }
 
@@ -118,12 +130,12 @@ const Form = ()=> {
           })
         }
         
-        setErrors(
-            validate({
-              ...form,
-              platforms: [...form.platforms, value],
-            })
-          );
+        // setErrors(
+        //     validate({
+        //       ...form,
+        //       platforms: [...form.platforms, value],
+        //     })
+        //   );
 
       }
 
@@ -143,6 +155,9 @@ const Form = ()=> {
 
     const submitHandler=(e)=> {
         e.preventDefault()
+        if(Object.keys(errors).length > 0){
+          alert('You need to fill all mandatory fields correctly before submitting');
+        } else { 
         axios
         .post('http://localhost:3001/videogames', form)
         .then(() =>{
@@ -158,6 +173,8 @@ const Form = ()=> {
         history.push('/videogames');
         history.go(0)
       }
+        
+    }
 
     return(
     <>
@@ -224,7 +241,7 @@ const Form = ()=> {
                 onChange={(e) =>handleChange(e)}
                 className={s.form__input}
             />
-            {errors.background_image && (<p className={s.error__form}>{errors.image}</p>)}
+            {errors.background_image && (<p className={s.error__form}>{errors.background_image}</p>)}
             </div>
 
             <br></br>
@@ -261,7 +278,7 @@ const Form = ()=> {
                         )
                         })}
                 </select>
-            </div>
+           </div>
 
             <br></br>
             <div>
@@ -311,7 +328,7 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <input className={s.submit} type='submit' value='SUBMIT'/>
+            <input className={s.submit} disabled={Object.keys(errors).length > 0} type='submit' value='SUBMIT'/>
             </div>
         </form>
         </div>

@@ -243,7 +243,7 @@ html, body {
     border-radius: 5px;
 }
 
-.submit:hover{
+.submit:active:hover:not([disabled]){
     scale: 1.1;
     transition: 0.5s;
     color: white;
@@ -260,6 +260,7 @@ html, body {
     margin-top: 2px;
     font-size: small;
 }
+
 
 .form__date{
     appearance: none;

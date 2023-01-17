@@ -30,7 +30,7 @@ const Cards = ()=> {
     return(
         <>
             <div className={s.card__container}>
-            {currentGames.length > 1 ?
+            {currentGames.length > 0 ?
                 (currentGames.map((game)=> {
                     return(
                         <>

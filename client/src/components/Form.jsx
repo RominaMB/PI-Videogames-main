@@ -191,10 +191,10 @@ const Form = ()=> {
                 name='released'
                 placeholder='yyyy-mm-dd'
                 min='1970-01-01'
-				max='2026-12-30'
+				        max='2024-12-30'
                 value={form.released}
                 onChange={(e) =>handleChange(e)}
-                className={s.form__input}
+                className={s.form__date}
             />
             {errors.released && (<p className={s.error__form}>{errors.released}</p>)}
             </div>

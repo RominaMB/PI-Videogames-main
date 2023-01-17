@@ -1,13 +1,14 @@
 import {
-    CLEAN_VIDEOGAMES_DETAILS,
     GET_ALL_VIDEOGAMES,
     GET_VIDEOGAMES_DETAILS,
+    CLEAN_VIDEOGAMES_DETAILS,
     GET_GENRES, 
     SEARCH_GAMES_BY_NAME,
+
     ORDER_BY,
     FILTER_BY_SOURCE,
     FILTER_BY_GENRE,
-
+    
     CHANGE_PAGE,
 } from './actions';
 
@@ -107,10 +108,10 @@ const rootReducer = (state = initialState, action)=> {
                 ...state,
                 allVideogames: aux
             }
-            
+
         //condicion --> action.payload es All Genres
-        //expresion 1 --> true, retorna los videogames
-        //expresion 2 --> false, filtra los juegos encontrando el primero cuyo nombre es igual a action.payload
+        //expresion 1 --> true, retorna todos los videogames
+        //expresion 2 --> false, filtra los juegos, encuentra un genero cuyo nombre es action.payload
 
         case CHANGE_PAGE:
             return {

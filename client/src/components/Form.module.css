@@ -261,7 +261,7 @@ html, body {
     font-size: small;
 }
 
-.form__date {
+.form__date{
     appearance: none;
     -webkit-appearance: none;
     order: none;
@@ -271,7 +271,7 @@ html, body {
     width: 27%;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    color:rgba(4, 74, 83, 0.459);
+    color: rgb(4, 74, 83);
     border: 1px solid transparent;
     border-radius: 30px;
     display: inline-block !important;

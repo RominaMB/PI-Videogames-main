@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getVideogamesDetails, cleanVgDetails } from '../redux/actions';
 import s from './Detail.module.css';
 import Nav from './Nav';
+import Loading from './Loading'
 
 
 const Detail = ()=> {
@@ -26,7 +27,7 @@ const Detail = ()=> {
             <Nav/>
             <body>
             <div className={s.detail__page}> {/*<h2>Soy DETAIL del GAME {id}</h2> */}
-            
+            {details.length === 0 && <Loading />}
             {details.map(game=> {
                 return(
                     <div className={s.detail__container}>

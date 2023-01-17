@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGenres, orderBy, filterBySource, filterByGenre } from '../redux/actions';
-import s from './OrderFilters.module.css';
+import { getGenres, orderBy, filterBySource, filterByGenre } from '../../redux/actions';
+import s from './OrdersFilters.module.css';
 
 const OrdersFilters = () => {
 

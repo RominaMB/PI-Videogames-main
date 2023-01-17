@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getGenres } from '../redux/actions';
+import { getGenres } from '../../redux/actions';
 import { Link, useHistory } from 'react-router-dom';
-import Nav from './Nav';
+import Nav from '../Nav/Nav';
 import s from './Form.module.css';
 import axios from 'axios';
 

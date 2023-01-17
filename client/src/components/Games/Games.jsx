@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react'; 
-import { getAllVideogames } from '../redux/actions';
+import { getAllVideogames } from '../../redux/actions';
 import { Link } from 'react-router-dom';
 import s from './Games.module.css';
-import Loading from './Loading';
-import Error from './Error';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 const Cards = ()=> {
 

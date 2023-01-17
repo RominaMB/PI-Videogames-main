@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changePage } from '../redux/actions';
+import { changePage } from '../../redux/actions';
 import s from './Paginated.module.css';
 
 const Paginated = ()=> {

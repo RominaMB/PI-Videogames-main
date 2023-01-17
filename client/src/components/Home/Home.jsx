@@ -1,10 +1,10 @@
 import React from 'react';
-import Nav from './Nav';
-import SearchBar from '../components/SearchBar';
-import Games from './Games'
-import Reset from './Reset';
-import OrdersFilters from './OrdersFilters';
-import Paginated from './Paginated';
+import Nav from '../Nav/Nav';
+import SearchBar from '../SearchBar/SearchBar';
+import Games from '../Games/Games'
+import Reset from '../Reset/Reset';
+import OrdersFilters from '../OrdersFilters/OrdersFilters';
+import Paginated from '../Paginated/Paginated';
 import s from './Home.module.css';
 
 const Home = ()=> {

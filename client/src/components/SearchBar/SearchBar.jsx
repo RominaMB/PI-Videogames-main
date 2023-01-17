@@ -2,7 +2,7 @@ import React from 'react';
 import s from './SearchBar.module.css';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { searchGame } from '../redux/actions'
+import { searchGame } from '../../redux/actions'
 
 const SearchBar = ()=> {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const SearchBar = ()=> {
             dispatch(searchGame(name))
             setName('')
         } else {
-            alert('No ingreso nada en la busqueda')
+            alert('Didnt write anything on search')
         }
     }
 
@@ -40,7 +40,7 @@ const SearchBar = ()=> {
             ></input>
 
             <button className = {s.button__searchbar}
-             type="submit"
+             type='submit'
              disabled={!name}
              
              >Search</button>

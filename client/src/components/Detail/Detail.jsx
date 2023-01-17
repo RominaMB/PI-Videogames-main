@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react'; 
 import { Link, useParams } from 'react-router-dom';
-import { getVideogamesDetails, cleanVgDetails } from '../redux/actions';
+import { getVideogamesDetails, cleanVgDetails } from '../../redux/actions';
 import s from './Detail.module.css';
-import Nav from './Nav';
-import Loading from './Loading'
+import Nav from '../Nav/Nav';
+import Loading from '../Loading/Loading'
 
 
 const Detail = ()=> {

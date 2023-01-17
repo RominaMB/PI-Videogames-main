@@ -1,5 +1,5 @@
 import React from 'react'
-import notfound from'../assets/notfound.png';
+import notfound from'../../assets/notfound.png';
 import s from './Error.module.css'
 
 export default function Error () {

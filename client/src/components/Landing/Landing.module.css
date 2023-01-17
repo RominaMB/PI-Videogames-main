@@ -6,7 +6,7 @@ html, body {
 }
 
 .landing__main {
-    background-image: url(../assets/landing.png);
+    background-image: url(../Landing/landing.png);
     background-color: rgb(96, 196, 183);
     background-size: cover;
     position: fixed;

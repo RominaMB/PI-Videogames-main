@@ -5,11 +5,6 @@ import press from '../assets/press.png';
 import nav from '../assets/nav.png';
 import s from './Landing.module.css';
 
-// import { useEffect } from 'react'; 
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getAllVideogames } from '../redux/actions';
-// import { Link } from 'react-router-dom';
-
 const Landing = ()=> {
     return(
 

@@ -15,9 +15,7 @@ const Cards = ()=> {
     const indexOfLastGame = currentPage * videogamesPerPage;
     const indexOfFirstGame = indexOfLastGame - videogamesPerPage;
     const currentGames = allVideogames.slice(indexOfFirstGame, indexOfLastGame);
-
-    // const [order, setOrder] = useState('')
-    
+  
     useEffect(()=> {
         dispatch(getAllVideogames());
 

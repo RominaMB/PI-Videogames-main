@@ -9,14 +9,13 @@ import {
     FILTER_BY_GENRE,
 
     CHANGE_PAGE,
-    LOADING_PAGE,
 } from './actions';
 
 //Punto de partida cuando comience la aplicacion
 const initialState = { 
     allVideogames: [],
     videogamesForFilter: [],
-    details: [], // {} Es un objeto porque tiene la informacion de un solo personaje
+    details: [], 
     genres: [],
     platforms: [],
 
@@ -25,7 +24,7 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action)=> {
-//Varios casos posibles - ver loading: false
+
     switch(action.type) {
         case GET_ALL_VIDEOGAMES:
             return {...state, allVideogames: action.payload, videogamesForFilter: action.payload};
@@ -101,37 +100,33 @@ const rootReducer = (state = initialState, action)=> {
             ...state,
             allVideogames: filter
         }
-        case FILTER_BY_GENRE: //ver!!
-            let getGamesGenre = state.videogamesForFilter;
-            let aux = [];
-            if(action.payload) {
-                aux = getGamesGenre.filter(e => {
-                    if(e.genres.some(e => e.name === action.payload)) {
-                        return e.genres.map(g => g.name)
-                    } 
-                    else if(action.payload === 'All Genres') {
-                        return getGamesGenre
-                    }
-                    })
-    
-            } else {
-                aux = getGamesGenre;
-            }
-            return {
+        case FILTER_BY_GENRE:
+            const videogames = state.videogamesForFilter;
+            const aux = action.payload === 'All Genres' ? videogames : videogames.filter(g => g.genres.find(f => f.name === action.payload));
+            return{ 
                 ...state,
-                allVideogames: aux,
+                allVideogames: aux
             }
-        // case FILTER_REMOVE:
-        //     return{
-        //         ...state,
-        //         allVideogames: state.videogamesForFilter
-        //     }
+            
+        //condicion --> action.payload es All Genres
+        //expresion 1 --> true, retorna los videogames
+        //expresion 2 --> false, filtra los juegos encontrando el primero cuyo nombre es igual a action.payload
+
         case CHANGE_PAGE:
             return {
                 ...state,
                 currentPage: Number(action.payload)? parseInt(action.payload) : action.payload === 'Next' ? (parseInt(state.currentPage) + 1 )
                 : (parseInt(state.currentPage) - 1 )
             }
+
+        //condicion action payload es un numero
+        //expresion 1 --> true, convierto action.payload a un num entero
+        //expresion 2 --> false, {
+        //                        condicion action.payload es Next
+        //                        expresion 1 --> true, le sumo 1 al estado de currentPage
+        //                        expresion 2 --> false (es decir es Prev), le resto 1 al estado de currentPage
+        //}                        
+
         default:
             return { ...state };
 

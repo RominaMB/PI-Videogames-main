@@ -3,8 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height: 50vh;
-    width: 50vw; */
+    height: 50vh;
+    width: 50vw;
     margin-top:2em;
     position: absolute;
     top: 50%;
@@ -14,8 +14,11 @@
 
 
 .loading__text{
-    font-size: 1.5em;
-    font-style:italic;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 200;
     color: rgb(4, 74, 83);
+    position: absolute;
+    top: 57%;
+    left: 48%;
+
 }

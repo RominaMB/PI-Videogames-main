@@ -1,5 +1,4 @@
 import './App.css';
-//import Nav from './components/Nav';
 import Landing from './components/Landing';
 import Home from './components/Home';
 import About from './components/About';
@@ -11,7 +10,7 @@ import { Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       
       <Route exact path='/' component = {Landing} />
       <Route exact path='/about' render={()=> {return <About />}}/> 

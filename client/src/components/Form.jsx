@@ -6,6 +6,7 @@ import Nav from './Nav';
 import s from './Form.module.css';
 import axios from 'axios';
 
+
 function validate (form) {
     let errors = {}
 
@@ -299,7 +300,7 @@ const Form = ()=> {
             <label>Selected Genres:</label>
             {form.genres.map((e, i)=> (
                 <div className={s.options__label}>
-                <div className={s.options__selectedG}>{genres && genres.find(gen => gen.id == e).name}</div>
+                <div className={s.options__selectedG}>{genres && genres.find(gen => gen.id === e).name}</div>
                 <button
                 key = {i}
                 className={s.options__btn}
@@ -310,7 +311,7 @@ const Form = ()=> {
 
             <br></br>
             <div>
-            <input className={s.submit} disabled={Object.keys(errors).length} type='submit' value='SUBMIT'/>
+            <input className={s.submit} type='submit' value='SUBMIT'/>
             </div>
         </form>
         </div>

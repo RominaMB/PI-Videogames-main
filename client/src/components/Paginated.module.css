@@ -12,10 +12,11 @@ html, body {
 }
 
 .button__container{
-    margin-top: 3em;
+    margin-top: 2em;
+    margin-bottom: 3em;
     height: 100%;
     width: 50%;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: space-between;
 }

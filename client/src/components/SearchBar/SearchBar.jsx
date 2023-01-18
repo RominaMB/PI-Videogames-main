@@ -18,7 +18,7 @@ const SearchBar = ()=> {
             dispatch(searchGame(name))
             setName('')
         } else {
-            alert('Didnt write anything on search')
+            alert('You didnt write anything on search');
         }
     }
 
@@ -41,7 +41,7 @@ const SearchBar = ()=> {
 
             <button className = {s.button__searchbar}
              type='submit'
-             disabled={!name}
+            //  disabled={!name}
              
              >Search</button>
             </form>

@@ -36,7 +36,7 @@ const rootReducer = (state = initialState, action)=> {
         case GET_GENRES:
             return {...state, genres: action.payload};
         case SEARCH_GAMES_BY_NAME:
-            return{...state, allVideogames: action.payload};
+            return{...state, allVideogames: action.payload, currentPage: 1};
         case ORDER_BY:
                 let gamesCopy = [...state.allVideogames];
                 let order 

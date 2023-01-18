@@ -114,8 +114,8 @@ const rootReducer = (state = initialState, action)=> {
 
         //condicion --> action.payload es All Genres
         //expresion 1 --> true, retorna todos los videogames
-        //expresion 2 --> false, filtra los juegos, por cada juego me fijo en sus generos si hay alguno cuyo nombre es === action.payload,
-        //por cada juego si esta condicion existe retorna true, caso contrario false.
+        //expresion 2 --> false, filtra los juegos. Por cada juego me fijo en sus generos si hay alguno cuyo nombre es === action.payload,
+        //por cada juego si esta condicion existe pasa el filtro, añadiendose al nuevo array.
 
         case CHANGE_PAGE:
             return {

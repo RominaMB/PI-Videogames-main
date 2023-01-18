@@ -9,12 +9,15 @@ const OrdersFilters = () => {
         const dispatch = useDispatch();
         const genres = useSelector((state)=> state.genres);
         const [genreSelect, setGenreSelect] = useState();
+        const [sourceSelect, setSourceSelect] = useState();
 
         const handleSort = (e)=> {
                 dispatch(orderBy(e.target.value))
         }
 
         const handleSource = (e)=> {
+                e.preventDefault();
+                setSourceSelect(e.target.value)
                 dispatch(filterBySource(e.target.value))
         }
 
@@ -44,10 +47,10 @@ const OrdersFilters = () => {
 
                         <select
                         className={s.select__two} 
-                        value='title'
+                        value={sourceSelect}
                         onChange={handleSource}>
 
-                                <option disabled value='title' >Filter by Source</option>
+                                <option disabled value='' >Filter by Source</option>
                                 <option name='All'>All Videogames</option>
                                 <option value='api'>From our List</option>
                                 <option value='uuid'>Created by Users</option>
@@ -58,7 +61,7 @@ const OrdersFilters = () => {
                         value={genreSelect}
                         onChange={handleGenre}>
 
-                                <option disabled value='title'>Filter by Genres</option>
+                                <option disabled value=''>Filter by Genres</option>
                                         <option name='All'>All Genres</option>
                                         {genres.map((genre)=> {
                                         return (

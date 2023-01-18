@@ -57,8 +57,8 @@ export const filterBySource = (payload)=> {
     return { type: FILTER_BY_SOURCE, payload }
 }
 
-export const filterByGenre = (genre)=> (dispatch)=> {
-    return dispatch({ type: FILTER_BY_GENRE, payload:genre })
+export const filterByGenre = (payload)=> (dispatch)=> {
+    return dispatch({ type: FILTER_BY_GENRE, payload })
 }
 
 export const changePage = (payload)=> (dispatch)=> {

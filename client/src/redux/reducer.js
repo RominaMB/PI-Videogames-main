@@ -81,6 +81,7 @@ const rootReducer = (state = initialState, action)=> {
         return {
             ...state,
             allVideogames: order,
+            currentPage: 1
         }
         case FILTER_BY_SOURCE:
             let getGames = state.videogamesForFilter;
@@ -99,14 +100,16 @@ const rootReducer = (state = initialState, action)=> {
             }
         return {
             ...state,
-            allVideogames: filter
+            allVideogames: filter,
+            currentPage: 1,
         }
         case FILTER_BY_GENRE:
             const videogames = state.videogamesForFilter;
             const aux = action.payload === 'All Genres' ? videogames : videogames.filter(g => g.genres.find(f => f.name === action.payload));
             return{ 
                 ...state,
-                allVideogames: aux
+                allVideogames: aux,
+                currentPage: 1
             }
 
         //condicion --> action.payload es All Genres

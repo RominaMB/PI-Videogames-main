@@ -41,7 +41,7 @@ const SearchBar = ()=> {
 
             <button className = {s.button__searchbar}
              type='submit'
-            //  disabled={!name}
+            // disabled={!name}
              
              >Search</button>
             </form>

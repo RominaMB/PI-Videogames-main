@@ -89,10 +89,10 @@ const rootReducer = (state = initialState, action)=> {
 
             switch(action.payload){
                 case 'uuid': 
-                filter = getGames.filter(e=> (e.id.length > 5))
+                filter = getGames.filter(e=> (e.id.length > 5)) // devuelve los uuid, ya que son muchos caracteres.
                 break;
                 case 'api':
-                filter = getGames.filter(e=> typeof(e.id) === 'number')
+                filter = getGames.filter(e=> typeof(e.id) === 'number') // devuelve los id que son numeros. Typeof indica el tipo de (e.id).
                 break;
             default:
                 filter = getGames;
@@ -105,7 +105,7 @@ const rootReducer = (state = initialState, action)=> {
         }
         case FILTER_BY_GENRE:
             const videogames = state.videogamesForFilter;
-            const aux = action.payload === 'All Genres' ? videogames : videogames.filter(g => g.genres.find(f => f.name === action.payload));
+            const aux = action.payload === 'All Genres' ? videogames : videogames.filter(g => g.genres.some(f => f.name === action.payload));
             return{ 
                 ...state,
                 allVideogames: aux,
@@ -114,7 +114,7 @@ const rootReducer = (state = initialState, action)=> {
 
         //condicion --> action.payload es All Genres
         //expresion 1 --> true, retorna todos los videogames
-        //expresion 2 --> false, filtra los juegos, encuentra un genero cuyo nombre es action.payload
+        //expresion 2 --> false, filtra los juegos, por cada juego comprueba si existe alguno con genero igual a action.payload.
 
         case CHANGE_PAGE:
             return {

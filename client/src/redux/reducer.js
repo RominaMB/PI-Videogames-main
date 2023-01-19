@@ -1,16 +1,5 @@
-import {
-    GET_ALL_VIDEOGAMES,
-    GET_VIDEOGAMES_DETAILS,
-    CLEAN_VIDEOGAMES_DETAILS,
-    GET_GENRES, 
-    SEARCH_GAMES_BY_NAME,
-
-    ORDER_BY,
-    FILTER_BY_SOURCE,
-    FILTER_BY_GENRE,
-    
-    CHANGE_PAGE,
-} from './actions';
+import {GET_ALL_VIDEOGAMES, GET_VIDEOGAMES_DETAILS, CLEAN_VIDEOGAMES_DETAILS, GET_GENRES, 
+    SEARCH_GAMES_BY_NAME, ORDER_BY, FILTER_BY_SOURCE, FILTER_BY_GENRE, CHANGE_PAGE} from './actions';
 
 //Punto de partida cuando comience la aplicacion
 const initialState = { 

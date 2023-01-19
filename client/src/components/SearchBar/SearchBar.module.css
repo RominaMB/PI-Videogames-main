@@ -61,3 +61,12 @@ html, body {
     outline: none;
 }
 
+@media screen and (max-width: 850px){
+    .search__container {
+    margin-top: 12px;
+    margin-left: 18%;
+    }
+    .input__searchbar {
+        padding: 2px 15px;
+    }
+}

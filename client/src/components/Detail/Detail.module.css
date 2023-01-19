@@ -63,3 +63,15 @@
     margin-left: 15%;
     margin-right: 15%;
 }
+
+@media screen and (max-width: 850px){
+    .description{
+        font-size: small;
+    }
+    .detail__label{
+        font-size: small;
+    }
+    .all__detail{
+        font-size: small;
+    }
+}

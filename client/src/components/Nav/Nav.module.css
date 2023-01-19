@@ -45,3 +45,23 @@ html, body {
     transition: 0.5s;
 
 }
+
+@media screen and (max-width: 850px){
+    .nav__img {
+    width: 50px;
+    height: 35px;
+    }
+
+    .nav__bar{
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background-color: rgb(96, 196, 183);
+    border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav__link{
+        margin: 4px;
+    }
+
+}

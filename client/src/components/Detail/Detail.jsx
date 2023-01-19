@@ -23,14 +23,13 @@ const Detail = ()=> {
     },[dispatch, id]);
 
     return(
-        <>
+            <>
             <Nav/>
-            <body>
-            <div className={s.detail__page}> {/*<h2>Soy DETAIL del GAME {id}</h2> */}
+            <div className={s.detail__page}> 
             {details.length === 0 && <Loading />}
-            {details.map(game=> {
+            {details.map((game, id)=> {
                 return(
-                    <div className={s.detail__container}>
+                    <div key={game.id}className={s.detail__container}>
                     <Link to='/videogames'><button className={s.back__btn}>X</button></Link>
                     <div className={s.detail__name}>
                     {game.name}
@@ -40,30 +39,27 @@ const Detail = ()=> {
                     <div><img className={s.detail__img} src={game.background_image} alt='game'/></div>
 
                     <br></br>
-                    <div className={s.detail__label}><label for='genres'>Genres:</label></div>
-                    {game.genres?.map(g=> (g.name ? g.name : g)).join(' | ')} 
+                    <div className={s.detail__label}><label htmlFor='genres'>Genres:</label></div>
+                        <div className={s.all__detail}>{game.genres?.map(g=> (g.name ? g.name : g)).join(' | ')} </div>
                     
-                    <br></br>
-                    <div className={s.detail__label}><label for='rating'>Rating:</label></div>
-                    {game.rating + ' / 5'}
-                    <br></br>
+                    <div className={s.detail__label}><label htmlFor='rating'>Rating:</label></div>
+                        <div className={s.all__detail}>{game.rating + ' / 5'}</div>
 
-                    <div className={s.detail__label}><label for='description'>Description:</label></div>
-                    <div className={s.description}>{game.description.replaceAll(regexp, ' ').replaceAll('&#39', '').replaceAll('game;s', 'games').replaceAll(';s', "'s") || 'Not Specified' }</div>
+                    <div className={s.detail__label}><label htmlFor='description'>Description:</label></div>
+                        <div className={s.description}>{game.description.replaceAll(regexp, ' ').replaceAll('&#39', '').replaceAll('game;s', 'games').replaceAll(';s', "'s") || 'Not Specified' }</div>
 
-                    <div className={s.detail__label}><label for='released'>Released:</label></div>
-                    {game.released.split("-").reverse().join("/")}
+                    <div className={s.detail__label}><label htmlFor='released'>Released:</label></div>
+                        <div className={s.all__detail}>{game.released.split("-").reverse().join("/")}</div>
 
-                    <br></br>
-                    <div className={s.detail__label}><label for='platforms'>Platforms:</label></div>
-                    {game.platforms.join(' , ')}
+                    <div className={s.detail__label}><label htmlFor='platforms'>Platforms:</label></div>
+                        <div className={s.all__detail}>{game.platforms.join(' , ')}</div>
                     </div>    
                 )
                 
             })}
-            </div>
-            </body>
-        </>
+                </div>
+            </>
+        
     );
 }
 

@@ -33,7 +33,7 @@ const Cards = ()=> {
             {currentGames.length > 0 ?
                 (currentGames.map((game)=> {
                     return(
-                        <>
+                        
                         <div key={game.id} className={s.individual__card}>
                             <Link to= {`/videogames/${game.id}`}>
                             <img className={s.game__img} src={game.background_image} alt='game'/>
@@ -45,7 +45,7 @@ const Cards = ()=> {
 
                             </Link>  
                         </div>
-                        </>
+                        
                         )    
                 })) : 
                 <div> <Error/> </div>

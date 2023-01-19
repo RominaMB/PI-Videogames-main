@@ -112,12 +112,12 @@ const Form = ()=> {
             genres: [...form.genres, value],
           })
         }
-        // setErrors(
-        //     validate({
-        //       ...form,
-        //       genres: [...form.genres, value],
-        //     })
-        //   );
+        setErrors(
+            validate({
+              ...form,
+              genres: [...form.genres, value],
+            })
+          );
 
       }
 
@@ -129,13 +129,12 @@ const Form = ()=> {
             platforms: [...form.platforms, value],
           })
         }
-        
-        // setErrors(
-        //     validate({
-        //       ...form,
-        //       platforms: [...form.platforms, value],
-        //     })
-        //   );
+        setErrors(
+            validate({
+              ...form,
+              platforms: [...form.platforms, value],
+            })
+          );
 
       }
 
@@ -208,7 +207,7 @@ const Form = ()=> {
                 name='released'
                 placeholder='yyyy-mm-dd'
                 min='1970-01-01'
-				        max='2024-12-30'
+				        max='2023-02-01'
                 value={form.released}
                 onChange={(e) =>handleChange(e)}
                 className={s.form__date}

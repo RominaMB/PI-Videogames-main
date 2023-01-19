@@ -14,7 +14,11 @@ const Paginated = ()=> {
     for (let i = 1; i <= Math.ceil(allData / videogamesPerPage); i++) {
         pageNumbers.push(i);
     }
-  
+
+    //    100   /      15               
+    // (allData/videogamesPerPage) = 7 
+    // Voy a ir agregando num de paginas al array mientras el num sea menor o igual a 7.
+    // entonces pageNumbers=[1,2,3,4,5,6,7]
    
     function handlerChangePage (e) {
         dispatch(changePage(e.target.value))
@@ -25,7 +29,7 @@ const Paginated = ()=> {
         <div className={s.paginated}>
             <div className={s.button__container}>
                  {pageNumbers && currentPage > 1 ? <button  className={s.prev__button} value= 'Prev' onClick={handlerChangePage}>Prev</button> : null}  
-               
+                
                     {pageNumbers?.map(number => (            
                         <button key={number} className={currentPage === number ? s.current__button : s.button} value={number} onClick={handlerChangePage}>{number}</button>
                     ))}

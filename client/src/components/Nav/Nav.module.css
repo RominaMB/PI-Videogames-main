@@ -63,5 +63,13 @@ html, body {
     .nav__link{
         margin: 4px;
     }
+    .nav__link:hover{
+        /* color: rgb(4, 74, 83);
+        text-decoration-line: underline;
+        text-decoration-thickness: 3px; */
+        text-underline-offset: 17px;
+        /* transition: 0.5s; */
+    
+    }
 
 }

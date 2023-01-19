@@ -295,4 +295,33 @@ html, body {
     margin-left: 80px;
     padding-left: 10px;
 }
+.form__label{
+    font-size: small;
+    margin-left: 50px;
+}
+.form__labelP{
+    font-size: small;
+    margin-left: -150px;
+
+}
+.form__labelG{
+    font-size: small;
+    margin-left: -150px;
+}
+
+.back__btn{
+    top: 78px;
+    margin-left: 9rem;
+}
+.form__date{
+    width: 31%;
+}    
+.form__selectP{
+    width: 40%;
+    margin-left: 25px;
+}
+.form__selectG{
+    width: 24%;
+}
+
 }

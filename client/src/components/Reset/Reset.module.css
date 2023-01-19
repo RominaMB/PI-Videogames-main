@@ -24,3 +24,9 @@
     border-width: 1px;
     outline: none;
 }
+
+@media screen and (max-width: 850px){
+    .reset__btn{
+        margin-left: 20px;
+    }
+}

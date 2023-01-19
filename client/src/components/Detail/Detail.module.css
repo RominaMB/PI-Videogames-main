@@ -74,4 +74,8 @@
     .all__detail{
         font-size: small;
     }
+    .back__btn{
+        top: 78px;
+        margin-left: 9rem;
+    }
 }

@@ -94,3 +94,9 @@ html, body {
     border-color: rgb(147,191,202);
     outline: none;
 }
+
+@media screen and (max-width: 850px){
+    .select__one{
+        margin-left: 149px;
+    }
+}

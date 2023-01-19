@@ -61,3 +61,13 @@ li{
     font-weight: bold;
 }
 
+@media screen and (max-width: 850px){
+    .about__text{
+        font-size: small;
+    }
+
+    .back__btn{
+        top: 78px;
+        margin-left: 9rem;
+    }
+}

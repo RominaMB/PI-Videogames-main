@@ -300,7 +300,7 @@ const Form = ()=> {
 
             <br></br>
             <div className={s.form__selectedP}>
-            <label>Selected Platforms:</label>
+            <label className={s.form__labelP}>Selected Platforms:</label>
             {form.platforms?.map((e)=> (
                 <div className={s.options__label}>
                 <div className={s.options__selectedP}>{e}</div>
@@ -313,7 +313,7 @@ const Form = ()=> {
 
             <br></br>
             <div className={s.form__selectedG}>
-            <label>Selected Genres:</label>
+            <label className={s.form__labelG}>Selected Genres:</label>
             {form.genres.map((e, i)=> (
                 <div className={s.options__label}>
                 <div className={s.options__selectedG}>{genres && genres.find(gen => gen.id == e).name}</div>

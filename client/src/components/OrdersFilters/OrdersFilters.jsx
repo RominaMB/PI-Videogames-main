@@ -62,7 +62,7 @@ const OrdersFilters = () => {
                         onChange={handleGenre}>
 
                                 <option disabled value=''>Filter by Genres</option>
-                                        <option name='All'>All Genres</option>
+                                        <option value='All Genres'>All Genres</option>
                                         {genres.map((genre)=> {
                                         return (
                                         <option key={genre.id} value={genre.name}>{genre.name}</option>

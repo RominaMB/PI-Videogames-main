@@ -5,9 +5,9 @@ const { Op } = require('sequelize');
 
 const create_videogame = async (req, res)=> {
     try {
-        const { name, genres, description, released, rating, platforms, background_image } = req.body;
-        const newVideogame = await Videogame.create({ name, genres, description, released, rating, platforms, background_image });
-        await newVideogame.addGenre(genres);
+        const { name, genres, description, released, rating, platforms, background_image } = req.body; //lo que recibo por body
+        const newVideogame = await Videogame.create({ name, genres, description, released, rating, platforms, background_image }); //el modelo ejecuta el metodo
+        await newVideogame.addGenre(genres); // que tenga relacion con el genero mediante metodo de sequelize
         res.status(200).json({ success: 'Created'});   
     } catch (error) {
         res.status(400).json({ error: error.message });

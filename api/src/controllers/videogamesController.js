@@ -19,9 +19,9 @@ const get_videogames = async (req,res)=> {
 
     if (name) {
         const resultsDb = await Videogame.findAll({
-            where: {
+            where: { // 'restringe' el findAll asi me trae lo que quiero y no todo
                 name: {
-                [Op.iLike]:`%${name}%`,
+                [Op.iLike]:`%${name}%`,  //operador de sequelize - case insensitive
                 },
             },
             include: {
@@ -36,7 +36,7 @@ const get_videogames = async (req,res)=> {
             return {
                 id: videogames.id,
                 name: videogames.name, 
-                genres: videogames.genres, // Ver 
+                genres: videogames.genres,  
                 released: videogames.released, 
                 rating: videogames.rating, 
                 platforms: videogames.platforms, 

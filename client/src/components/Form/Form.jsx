@@ -11,6 +11,10 @@ function validate (form) {
   let errors = {}
   if(!form.name) {
     errors.name = 'Name is required'
+  } 
+  if(form.name.length > 50){
+    errors.name = 'Name can not have more than 50 characters.'
+
   } else if(!/^[a-zA-Z0-9-() .]+$/.test(form.name)){
     errors.name = 'Only letters, numbers, hypens(-), and parentheses are accepted'
   }
@@ -76,6 +80,8 @@ const Form = ()=> {
   useEffect(()=>{
     dispatch(getGenres());
   }, [dispatch])
+
+
   const handleChange =(e)=> {
       const property = e.target.name;
       const value = e.target.value;

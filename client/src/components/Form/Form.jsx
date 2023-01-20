@@ -161,9 +161,9 @@ const Form = ()=> {
   }
   return(
   
-
+    <>
+    <Nav/>
       <div className={s.form__page}>
-      <Nav/>
       <form className={s.form__container} autoComplete='off' onSubmit={submitHandler}>
       <Link to='/videogames'><button className={s.back__btn}>X</button></Link>
           <h2 className={s.form__title}>CREATE YOUR VIDEOGAME</h2>
@@ -305,7 +305,7 @@ const Form = ()=> {
           </div>
       </form>
       </div>
-  
+    </>  
   )
 }
 export default Form;

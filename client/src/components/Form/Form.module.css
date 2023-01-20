@@ -288,6 +288,14 @@ html, body {
 
 @media screen and (max-width: 850px) {
 
+   .nav__bar {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        background-color: rgb(96, 196, 183);
+        border-bottom: 1px solid #e0e0e0;
+}
+
 .form__selectG{
     margin-left: 35px;
 }

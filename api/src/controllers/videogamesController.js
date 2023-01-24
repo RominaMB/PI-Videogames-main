@@ -78,7 +78,7 @@ const get_videogames = async (req,res)=> {
 
         const mapDbData = dbData.map((videogames)=> {
             return {
-                id: videogames.id,
+                id: videogames.id, 
                 name: videogames.name, 
                 genres: videogames.genres,
                 released: videogames.released, 

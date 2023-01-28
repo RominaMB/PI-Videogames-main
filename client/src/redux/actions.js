@@ -1,5 +1,5 @@
 import axios from 'axios';
-// const URL_SERVER = 'http://localhost:3001'
+const URL_SERVER = 'http://localhost:3001'
 
 // ACTIONS
 export const GET_ALL_VIDEOGAMES = 'GET_ALL_VIDEOGAMES';
@@ -19,14 +19,14 @@ export const CHANGE_PAGE = 'CHANGE_PAGE';
 //Action Creator
 export const getAllVideogames = ()=> async (dispatch) => {
     return await axios
-        .get(`/videogames`)
+        .get(`${URL_SERVER}/videogames`)
         .then((response)=> 
             dispatch({ type: GET_ALL_VIDEOGAMES, payload: response.data }))
 };
 
 export const getVideogamesDetails = (id)=> async (dispatch) => {
     return await axios
-    .get(`/videogames/${id}`)
+    .get(`${URL_SERVER}/videogames/${id}`)
     .then((response)=>
         dispatch({ type: GET_VIDEOGAMES_DETAILS, payload: response.data }))
 }
@@ -37,14 +37,14 @@ export const cleanVgDetails = () => {
 
 export const getGenres = ()=> async (dispatch) => {
     return await axios
-    .get(`/genres`)
+    .get(`${URL_SERVER}/genres`)
     .then((response)=>
         dispatch({ type: GET_GENRES, payload: response.data }))
 }
 
 export const searchGame = (name)=> async (dispatch)=> {
     return await axios
-    .get(`/videogames?name=${name}`)
+    .get(`${URL_SERVER}/videogames?name=${name}`)
     .then((response)=>
         dispatch({ type: SEARCH_GAMES_BY_NAME, payload: response.data }))
 }

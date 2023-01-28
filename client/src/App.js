@@ -5,6 +5,8 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Page404 from './components/Page404/Page404';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001'
 
 import { Route, Switch } from 'react-router-dom';
 

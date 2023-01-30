@@ -31,6 +31,7 @@ const About = ()=> {
                     <li>PostgresSQL</li>
                 </ul>
                 <p><b>Thanks for visting GameLand!</b></p>
+                <p>Developed & designed by RominaMB.</p>
                 </div>
             </div>
             </div>

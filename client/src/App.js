@@ -8,7 +8,7 @@ import Page404 from './components/Page404/Page404';
 
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'https://pi-videogames-main-production-94ff.up.railway.app/';
 
 //switch examina examina todas sus rutas secundarias 
 //y muestra la primera cuya ruta coincide con la URL actual.

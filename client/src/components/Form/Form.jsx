@@ -143,7 +143,7 @@ const Form = ()=> {
         alert('You need to fill all mandatory fields correctly before submitting');
       } else { 
       axios
-      .post('http://localhost:3001/videogames', form)
+      .post('/videogames', form)
       .then(() =>{
           alert(`El videogame ${form.name} was created successfully`);
           setForm({

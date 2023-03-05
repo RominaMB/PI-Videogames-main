@@ -32,3 +32,9 @@
   text-align: right;
   text-decoration: none;
 }
+
+@media (max-width: 1000px) {
+  .footer__class {
+    margin-bottom: 20px;
+  }
+}

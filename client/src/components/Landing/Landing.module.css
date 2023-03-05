@@ -102,29 +102,31 @@ body {
   color: #6860e8;
 }
 
-@media screen and (max-width: 850px) {
+@media (max-width: 1000px) {
   .landing__title {
     display: flex;
-    /* top: 3px;
-        left: 5px;
-        right:5px; */
-    position: static;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10% 10% 10% 10%;
   }
-  .button__Container {
-    right: 0;
-    bottom: 0;
-    display: flex;
-    position: static;
-    width: 100%;
-  }
-  .img__nav {
-    display: flex;
-    font-size: 15px;
+
+  .landing__title {
+    width: 80%;
+    min-width: 300px;
   }
   .landing__main {
     background-position: center;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .footer__landing {
+    margin-bottom: 20px;
   }
 }

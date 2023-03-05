@@ -1,0 +1,34 @@
+.footer__class {
+  /* display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px 50px;
+  margin-bottom: 0; */
+  /* padding: 15px 30px; */
+  bottom: 0;
+  color: rgba(128, 128, 128, 0.767);
+  position: static;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+}
+
+.footer__link:link {
+  text-decoration: none;
+  color: rgba(128, 128, 128, 0.767);
+}
+.footer__link:visited {
+  text-decoration: none;
+  color: rgba(128, 128, 128, 0.767);
+}
+
+.footer__link:hover {
+  text-decoration: none;
+  color: #6860e8;
+}
+
+.link__style {
+  text-align: right;
+  text-decoration: none;
+}

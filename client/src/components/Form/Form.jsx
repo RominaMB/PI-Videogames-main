@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import s from "./Form.module.css";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 
 function validate(form) {
   let errors = {};
@@ -171,9 +172,12 @@ const Form = () => {
           onSubmit={submitHandler}
         >
           <Link to="/videogames">
-            <button className={s.back__btn}>X</button>
+            <button className={s.back__btn}>
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
           </Link>
-          <h2 className={s.form__title}>CREATE YOUR VIDEOGAME</h2>
+          <h2 className={s.form__title}>Let's create a new videogame!</h2>
+          <hr></hr>
           <div>
             <label className={s.form__label}>Name:</label>
             <input
@@ -330,11 +334,12 @@ const Form = () => {
               className={s.submit}
               disabled={Object.keys(errors).length > 0}
               type="submit"
-              value="SUBMIT"
+              value={"SUBMIT"}
             />
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

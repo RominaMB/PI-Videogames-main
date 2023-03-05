@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import SearchBar from '../components/SearchBar';
 import s from "./Nav.module.css";
-import nav from "../../assets/nav.png";
+import nav from "../../assets/nav3.png";
 
 const Nav = () => {
   return (

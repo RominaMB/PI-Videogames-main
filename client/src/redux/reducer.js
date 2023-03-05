@@ -18,7 +18,7 @@ const initialState = {
   genres: [],
   platforms: [],
 
-  videogamesPerPage: 9,
+  videogamesPerPage: 15,
   currentPage: 1,
 };
 

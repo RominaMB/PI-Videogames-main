@@ -338,8 +338,8 @@ const Form = () => {
             />
           </div>
         </form>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

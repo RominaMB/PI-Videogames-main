@@ -18,6 +18,7 @@ const Home = () => {
         <Reset />
         <OrdersFilters />
         <br></br>
+        <Paginated />
         <Games />
         <Paginated />
         <Footer />

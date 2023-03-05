@@ -35,7 +35,7 @@
   height: auto;
   min-height: 0;
   width: 100%;
-  max-width: 270px;
+  max-width: 250px;
   cursor: pointer;
   padding-bottom: 2%;
   margin-bottom: 5%;
@@ -43,7 +43,7 @@
 
 .game__img {
   height: 150px;
-  width: 270px;
+  width: 250px;
   /* box-shadow: 2px 2px 12px #6d6875; */
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;

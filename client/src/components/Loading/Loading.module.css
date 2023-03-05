@@ -5,6 +5,7 @@
   align-items: center;
   /* height: 70vh;
     width: 50vw; */
+  width: 50%;
   margin-top: 3em;
   position: absolute;
   top: 50%;
@@ -15,7 +16,7 @@
 .loading__text {
   font-size: 20px;
   font-weight: 200;
-  color: rgb(4, 74, 83);
+  color: #452896;
   position: absolute;
   top: 58%;
   left: 48%;

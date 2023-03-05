@@ -1,3 +1,9 @@
+.loading__container {
+  padding: 1em 1em;
+  max-width: 1200px;
+  width: 100%;
+}
+
 .loading {
   display: flex;
   flex-direction: column;

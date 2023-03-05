@@ -57,7 +57,7 @@
   /* width: 1px; */
   text-decoration: none;
   display: inline-block;
-  color: #000000;
+  color: #303030;
 }
 
 .game__genres {
@@ -65,7 +65,7 @@
   font-size: small;
   text-decoration: none;
   display: inline-block;
-  color: #452896;
+  color: #303030;
 }
 
 .individual__card:hover {
@@ -84,8 +84,7 @@
 
 .game__rating {
   color: rgba(250, 214, 97, 0.87);
-  border-color: #000000;
-  border-width: 1px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   display: inline-block;
   font-weight: bold;
   /* border-color: black; */

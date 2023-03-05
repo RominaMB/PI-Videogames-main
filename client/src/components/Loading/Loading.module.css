@@ -1,24 +1,22 @@
-.loading{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    width: 50vw;
-    margin-top:3em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 70vh;
+    width: 50vw; */
+  margin-top: 3em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-
-.loading__text{
-    font-size: 20px;
-    font-weight: 200;
-    color: rgb(4, 74, 83);
-    position: absolute;
-    top: 58%;
-    left: 48%;
-
+.loading__text {
+  font-size: 20px;
+  font-weight: 200;
+  color: rgb(4, 74, 83);
+  position: absolute;
+  top: 58%;
+  left: 48%;
 }

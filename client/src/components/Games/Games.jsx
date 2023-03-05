@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import s from "./Games.module.css";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
-import Footer from "../Footer/Footer";
 
 const Cards = () => {
   const dispatch = useDispatch();
@@ -61,7 +60,6 @@ const Cards = () => {
           </div>
         )}
       </div>
-      <Footer />
     </>
   );
 };

@@ -49,10 +49,10 @@ body {
 }
 
 .search__container {
-  display: grid;
+  display: inline-block;
   place-content: center;
   position: absolute;
-  margin-left: 30%;
+  margin-left: 35%;
 }
 
 .search__bar {

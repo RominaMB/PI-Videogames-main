@@ -89,13 +89,14 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 10% 10% 10% 10%;
-    filter: drop-shadow(2px 2px 0px rgb(255, 255, 255));
+    margin: 1% 1% 1% 2%;
+    /* margin: 10% 10% 10% 10%;
+    filter: drop-shadow(2px 2px 0px rgb(255, 255, 255)); */
   }
 
   .landing__title {
-    width: 80%;
-    min-width: 300px;
+    width: 75%;
+    min-width: 200px;
   }
   .landing__main {
     background-position: right;
@@ -110,9 +111,7 @@ body {
   }
 
   .nav__img {
-    scale: 1.2;
-    transition: 0.5s;
-    filter: drop-shadow(2px 2px 0px rgb(255, 255, 255));
+    margin-bottom: 80%;
   }
   .nav__img:hover {
     scale: 1.2;

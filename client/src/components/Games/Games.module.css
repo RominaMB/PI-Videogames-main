@@ -90,20 +90,8 @@
   /* border-color: black; */
 }
 
-/* @media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
   .card__container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
-
-  .individual__card {
-    width: 80%;
-    max-width: 195px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .game__img {
-    height: 95px;
-    max-width: 195px;
-  }
-} */
+}

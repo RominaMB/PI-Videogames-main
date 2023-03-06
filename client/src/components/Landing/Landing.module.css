@@ -90,7 +90,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin: 10% 10% 10% 10%;
-    filter: drop-shadow(2px 1px 0px rgb(255, 255, 255));
+    filter: drop-shadow(2px 2px 0px rgb(255, 255, 255));
   }
 
   .landing__title {

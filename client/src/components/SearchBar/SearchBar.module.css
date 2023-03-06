@@ -59,13 +59,3 @@ body {
   border-color: #6860e8;
   outline: none;
 }
-
-@media screen and (max-width: 1000px) {
-  .search__container {
-    margin-top: 12px;
-    margin-left: 18%;
-  }
-  .input__searchbar {
-    padding: 2px 15px;
-  }
-}

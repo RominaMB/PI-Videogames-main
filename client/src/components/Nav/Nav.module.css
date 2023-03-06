@@ -38,6 +38,7 @@ body {
   text-decoration: none;
   color: #fff;
   position: inherit;
+  margin-right: 20px;
 }
 
 .nav__link:hover {

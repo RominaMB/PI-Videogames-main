@@ -122,6 +122,10 @@ body {
     margin-bottom: 20px;
     color: #ffffff;
     text-decoration: none;
+    display: inline-grid;
+    margin-left: 15%;
+    align-content: center;
+    justify-content: space-between;
   }
   .footer__link:link {
     text-decoration: none;

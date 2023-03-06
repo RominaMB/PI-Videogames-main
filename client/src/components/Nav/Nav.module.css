@@ -48,19 +48,21 @@ body {
 
 @media screen and (max-width: 1000px) {
   .nav__img {
-    width: 100%;
+    width: 90%;
+    /* height: fit-content; */
   }
 
   .nav__bar {
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    padding: 0 5px;
     /* border-bottom: 1px solid #e0e0e0; */
     filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.247));
   }
 
   .nav__link {
-    margin: 10px;
+    display: grid;
+    justify-content: end;
   }
   .nav__link:hover {
     text-underline-offset: none;

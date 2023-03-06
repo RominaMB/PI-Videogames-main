@@ -281,16 +281,7 @@ body {
   .form__textbox {
     width: 50%;
   }
-  .form__selectedP {
-    margin-left: 50px;
-  }
-  .form__selectedG {
-    margin-left: 50px;
-  }
   .form__selectP {
     margin-left: 50px;
-  }
-  .options__selectedP {
-    flex-wrap: wrap;
   }
 }

@@ -72,6 +72,10 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
+  .detail__container {
+    padding: 5px;
+    width: 85%;
+  }
   .description {
     font-size: small;
   }

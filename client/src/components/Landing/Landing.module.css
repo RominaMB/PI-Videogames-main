@@ -90,6 +90,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin: 10% 10% 10% 10%;
+    filter: drop-shadow(2px 1px 0px rgb(255, 255, 255));
   }
 
   .landing__title {
@@ -98,7 +99,6 @@ body {
   }
   .landing__main {
     background-position: right;
-    background-color: rgb(255, 255, 255);
     background-size: cover;
     position: fixed;
     height: 100%;
@@ -106,7 +106,19 @@ body {
     margin: 0;
     top: 0;
     bottom: 0;
+    /* filter: drop-shadow(1px 1px 1px rgb(255, 255, 255)); */
   }
+
+  .nav__img {
+    scale: 1.2;
+    transition: 0.5s;
+    filter: drop-shadow(2px 2px 0px rgb(255, 255, 255));
+  }
+  .nav__img:hover {
+    scale: 1.2;
+    transition: 0.5s;
+  }
+
   .footer__landing {
     margin-bottom: 20px;
     color: #ffffff;

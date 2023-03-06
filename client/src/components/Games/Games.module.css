@@ -90,7 +90,7 @@
   /* border-color: black; */
 }
 
-@media screen and (max-width: 850px) {
+/* @media screen and (max-width: 850px) {
   .card__container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -106,4 +106,4 @@
     height: 95px;
     max-width: 195px;
   }
-}
+} */

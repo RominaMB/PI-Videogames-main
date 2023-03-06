@@ -1,6 +1,5 @@
 import React from "react";
-import Nav from "../Nav/Nav";
-import SearchBar from "../SearchBar/SearchBar";
+import NavHome from "../Nav/Nav2";
 import Games from "../Games/Games";
 import OrdersFilters from "../OrdersFilters/OrdersFilters";
 import Paginated from "../Paginated/Paginated";
@@ -12,8 +11,7 @@ const Home = () => {
   return (
     <>
       <div className={s.background_img}>
-        <SearchBar />
-        <Nav />
+        <NavHome />
         <OrdersFilters />
         <br></br>
         <Games />

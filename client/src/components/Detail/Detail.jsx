@@ -34,7 +34,7 @@ const Detail = () => {
                   <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </button>
               </Link>
-              <div className={s.detail__name}>{game.name}</div>
+              <h2 className={s.detail__name}>{game.name}</h2>
               <hr></hr>
               {/* <br></br> */}
               <div>
@@ -61,13 +61,13 @@ const Detail = () => {
               <div className={s.detail__label}>
                 <label htmlFor="description">Description:</label>
               </div>
-              <div className={s.description}>
+              <p className={s.description}>
                 {game.description
                   .replaceAll(regexp, " ")
                   .replaceAll("&#39", "")
                   .replaceAll("game;s", "games")
                   .replaceAll(";s", "'s") || "Not Specified"}
-              </div>
+              </p>
 
               <div className={s.detail__label}>
                 <label htmlFor="released">Released:</label>

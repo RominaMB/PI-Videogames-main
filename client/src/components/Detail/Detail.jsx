@@ -56,7 +56,7 @@ const Detail = () => {
               <div className={s.detail__label}>
                 <label htmlFor="rating">Rating:</label>
               </div>
-              <div className={s.all__detail}>{game.rating + " / 5"}</div>
+              <div className={s.all__detail}>{game.rating + " / 5 ⭐"}</div>
 
               <div className={s.detail__label}>
                 <label htmlFor="description">Description:</label>

@@ -46,10 +46,9 @@ body {
   transition: 0.5s;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
   .nav__img {
-    width: 50px;
-    height: 35px;
+    width: 100%;
   }
 
   .nav__bar {
@@ -61,13 +60,9 @@ body {
   }
 
   .nav__link {
-    margin: 4px;
+    margin: 10px;
   }
   .nav__link:hover {
-    /* color: rgb(4, 74, 83);
-        text-decoration-line: underline;
-        text-decoration-thickness: 3px; */
-    text-underline-offset: 17px;
-    /* transition: 0.5s; */
+    text-underline-offset: none;
   }
 }

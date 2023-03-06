@@ -59,3 +59,9 @@ body {
   border-color: #6860e8;
   outline: none;
 }
+
+@media screen and (max-width: 1000px) {
+  .input__searchbar {
+    padding: 0px 0px;
+  }
+}

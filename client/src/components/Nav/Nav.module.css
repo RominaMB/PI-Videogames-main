@@ -10,7 +10,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
   background-color: rgb(214, 180, 232);
   box-shadow: 3px 3px 3px rgba(97, 108, 111, 0.306);
 }
@@ -21,6 +20,7 @@ body {
   margin-right: 20px;
   height: 60px;
   margin-top: 10px;
+  margin-left: 10px;
   margin-bottom: 5px;
   filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.247));
 }

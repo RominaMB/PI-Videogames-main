@@ -85,7 +85,6 @@ body {
 
 @media (max-width: 1000px) {
   .landing__title {
-    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -99,7 +98,8 @@ body {
     min-width: 200px;
   }
   .landing__main {
-    background-position: right;
+    /* background-position: right; */
+    background-position: left 90% center;
     background-size: cover;
     position: fixed;
     height: 100%;

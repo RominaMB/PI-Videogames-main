@@ -6,6 +6,7 @@ import { getVideogamesDetails, cleanVgDetails } from "../../redux/actions";
 import s from "./Detail.module.css";
 import Nav from "../Nav/Nav";
 import Loading from "../Loading/Loading";
+import Footer from "../Footer/Footer";
 
 const Detail = () => {
   const { id } = useParams();
@@ -82,6 +83,7 @@ const Detail = () => {
             </div>
           );
         })}
+        <Footer />
       </div>
     </>
   );

@@ -42,6 +42,10 @@ body {
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 40px;
+  /* text-align: justify;
+  text-size-adjust: inherit;
+  margin-left: 15%;
+  margin-right: 15%; */
 }
 
 .detail__name {

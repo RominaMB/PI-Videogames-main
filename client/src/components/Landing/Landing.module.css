@@ -22,9 +22,6 @@ body {
   position: center;
   width: 35%;
   padding-top: 15%;
-  /* width: 45%;
-  top: 65%;
-  left: 50%; */
 }
 
 .landing__title:hover {
@@ -32,16 +29,7 @@ body {
   transition: 10s;
 }
 
-/* .button__text{
-    color: rgb(0, 0, 0);
-    font-family:system-ui;
-    font-size: 12px;
-    font-weight: bold;
-
-} */
-
 .button__text {
-  /* height: 200px; */
   margin-right: 20px;
   margin-bottom: 5px;
 }
@@ -58,7 +46,6 @@ body {
 
 .nav__img {
   width: 50%;
-  /* height: 200px; */
   margin-right: 20px;
   height: 100%;
   top: 0;
@@ -73,12 +60,6 @@ body {
 }
 
 .footer__landing {
-  /* display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0px 50px;
-  margin-bottom: 0; */
-  /* padding: 15px 30px; */
   bottom: 0;
   color: rgba(128, 128, 128, 0.767);
   position: fixed;
@@ -116,7 +97,7 @@ body {
     min-width: 300px;
   }
   .landing__main {
-    background-position: center;
+    background-position: right;
     background-color: rgb(255, 255, 255);
     background-size: cover;
     position: fixed;
@@ -128,5 +109,19 @@ body {
   }
   .footer__landing {
     margin-bottom: 20px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .footer__link:link {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .footer__link:visited {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .footer__link:hover {
+    text-decoration: none;
+    color: #6860e8;
   }
 }

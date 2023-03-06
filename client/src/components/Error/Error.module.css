@@ -6,11 +6,6 @@
   z-index: 1;
 }
 
-.error__img {
-  position: center;
-  width: 50%;
-}
-
 .error__title {
   font-size: 20px;
   font-weight: 500;

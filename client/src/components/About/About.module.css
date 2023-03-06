@@ -75,13 +75,11 @@ li {
 @media screen and (max-width: 1000px) {
   .about__content {
     padding: 5px;
+    width: 85%;
   }
 
   .about__text {
     font-size: small;
   }
 
-  .about__content {
-    width: 85%;
-  }
 }

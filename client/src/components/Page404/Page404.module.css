@@ -59,3 +59,11 @@ body {
   text-underline-offset: 5px;
   transition: 0.5s;
 }
+
+@media screen and (max-width: 1000px) {
+  .errorpage__img {
+    width: 80%;
+    height: 20%;
+    object-fit: cover;
+  }
+}

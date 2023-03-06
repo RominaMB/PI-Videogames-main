@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import gameover from "../../assets/404.png";
+import gameover from "../../assets/4042.png";
 import s from "./Page404.module.css";
 
 export default function NotFound({ location }) {

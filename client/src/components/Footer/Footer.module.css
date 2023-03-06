@@ -36,5 +36,11 @@
 @media (max-width: 1000px) {
   .footer__class {
     margin-bottom: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    width: 60%;
+    display: grid;
+    align-content: center;
+    margin-left: 20%;
   }
 }

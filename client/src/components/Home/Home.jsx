@@ -15,6 +15,7 @@ const Home = () => {
         <SearchBar />
         <Nav />
         <OrdersFilters />
+        <Paginated />
         <br></br>
         <Games />
         <Paginated />

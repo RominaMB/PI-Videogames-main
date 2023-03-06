@@ -79,7 +79,7 @@ const Detail = () => {
               <div className={s.detail__label}>
                 <label htmlFor="platforms">Platforms:</label>
               </div>
-              <div className={s.all__detail}>{game.platforms.join(" , ")}</div>
+              <div className={s.all__detailP}>{game.platforms.join(" , ")}</div>
             </div>
           );
         })}

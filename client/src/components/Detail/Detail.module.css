@@ -78,6 +78,10 @@ body {
   .detail__label {
     font-size: small;
   }
+  .all__detailP {
+    font-size: small;
+    padding-bottom: 10px;
+  }
   .all__detail {
     font-size: small;
   }

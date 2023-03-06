@@ -34,7 +34,6 @@ body {
 .nav__link {
   margin: 10px;
   font-weight: bold;
-  width: 1px;
   text-decoration: none;
   color: #fff;
   position: inherit;
@@ -65,7 +64,6 @@ body {
   .nav__link {
     display: grid;
     justify-content: center;
-    width: fit-content;
   }
   .nav__link:hover {
     color: #452896;
